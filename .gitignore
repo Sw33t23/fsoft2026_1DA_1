@@ -1,0 +1,38 @@
+# CMake and generated build directories
+**/cmake-build-debug/
+**/cmake-build-release/
+**/cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+build.ninja
+*.ninja_log
+*.ninja_deps
+
+# IDE files
+.idea/
+.vs/
+*.iml
+*.iws
+*.user
+
+# Compiled binaries and objects
+*.exe
+*.out
+*.app
+*.o
+*.obj
+
+# Logs and OS noise
+*.log
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+
+# Office temporary lock files
+~$*
+
+# Common output folders
+bin/
+obj/
