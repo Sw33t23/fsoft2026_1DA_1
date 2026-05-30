@@ -23,3 +23,65 @@ public:
 };
 
 
+MaiorOuMenor::MaiorOuMenor() : limiteMax(100), tentativasAtuais(0), numeroSecreto(0)
+{
+    static bool random = false;
+    if (!random)
+    {
+        srand(time(NULL));
+        random = true;
+    }
+}
+
+void MaiorOuMenor::iniciarJogoNovo()
+{
+    this->tentativasAtuais = 0;
+    this->numeroSecreto = (rand() % this->limiteMax) + 1;
+}
+
+bool MaiorOuMenor::palpiteValid(int palpite) const
+{
+    if (palpite < 1 || palpite > limiteMax)
+    {
+        return false;
+    }
+    return true;
+}
+
+int MaiorOuMenor::verificarPalpite(int palpite)
+{
+    if (!this->palpiteValid(palpite))
+    {
+        throw InvalidDataException("Palpite invalido: Deve estar entre 1 e 100!");
+    }
+    this->tentativasAtuais++;
+
+    if (palpite == this->numeroSecreto)
+    {
+        return 0;
+    }
+    if(palpite > this->numeroSecreto)
+    {
+        return 1;
+    }
+    if (palpite < this->numeroSecreto)
+    {
+        return -1;
+    }
+}
+
+
+int MaiorOuMenor::getTentativasAtuais() const
+{
+    return this->tentativasAtuais;
+}
+
+int MaiorOuMenor::getLimiteMax() const
+{
+    return this->limiteMax;
+}
+
+
+
+
+

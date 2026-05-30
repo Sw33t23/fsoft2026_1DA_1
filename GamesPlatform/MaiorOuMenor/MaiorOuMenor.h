@@ -14,7 +14,7 @@ private:
     bool palpiteValid(int palpite) const;
 
 public:
-    MaiorOuMenor(int limiteMax);
+    MaiorOuMenor();
 
     void iniciarJogoNovo();
     int verificarPalpite(int palpite);
@@ -23,7 +23,5 @@ public:
     int getLimiteMax() const;
 
 };
-
-
 
 #endif //FSOFT2026_1DA_1_MAIOROUMENOR_H
