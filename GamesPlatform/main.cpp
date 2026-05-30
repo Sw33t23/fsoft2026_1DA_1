@@ -4,7 +4,7 @@ int main()
 {
     MaiorOuMenorController MaiorOuMenorController;
 
-    MaiorOuMenorController.playGame(),
+    MaiorOuMenorController.playGame();
 
     return 0;
 }

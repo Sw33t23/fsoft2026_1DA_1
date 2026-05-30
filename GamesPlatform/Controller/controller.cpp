@@ -14,10 +14,10 @@ void MaiorOuMenorController::playGame()
 {
     this->game.iniciarJogoNovo();
 
-    cout << "==== JOGO: MAIOR OU MENOR ====" << endl;
-    cout << "==== Regras: ====" << endl;
-    cout << "- Deve adivinhar um número aleatório de 1 a 100" << endl;
-    cout << "- Serão contadas as tentativas que precisou para acertar" << endl;
+    cout << "==== MAIOR OU MENOR ====" << endl;
+    cout << "REGRAS:" << endl;
+    cout << "- Deve adivinhar um numero aleatorio de 1 a 100" << endl;
+    cout << "- Serao contadas as tentativas que precisou para acertar" << endl;
 
     int estadoJogo = -1;
     int palpite;
@@ -33,11 +33,11 @@ void MaiorOuMenorController::playGame()
 
             if (estadoJogo == 1)
             {
-                cout << "O teu palpite está ACIMA do número!" << endl;
+                cout << "O teu palpite esta ACIMA do numero!" << endl;
             }
             if (estadoJogo == -1)
             {
-                cout << "O teu palpite está ABAIXO do número!" << endl;
+                cout << "O teu palpite esta ABAIXO do numero!" << endl;
             }
         }
         catch ( const std::exception &e )
@@ -46,6 +46,6 @@ void MaiorOuMenorController::playGame()
         }
     }
 
-    cout << "\n PARABÉNS! Adivinhaste o número secreto!" << endl;
+    cout << "\n PARABENS! Adivinhaste o numero secreto!" << endl;
     cout << "Tentantivas realizadas: " << this->game.getTentativasAtuais() << endl;
 }
