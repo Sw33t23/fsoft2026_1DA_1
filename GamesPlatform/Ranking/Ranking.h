@@ -5,6 +5,8 @@
 #include <vector>
 #include <iostream>
 
+using namespace std;
+
 struct EntradaRanking {
     string username;
     int valor;
