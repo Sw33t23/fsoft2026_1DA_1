@@ -15,4 +15,7 @@ add_executable(fsoft2026_1DA_1
         GamesPlatform/blackjack/blackjack.cpp
         GamesPlatform/Controller/controller.h
         GamesPlatform/Controller/controller.cpp
+        GamesPlatform/Jogo do Galo/Galo.cpp
+        GamesPlatform/Ranking/Ranking.h
+        GamesPlatform/Ranking/Ranking.cpp
 )
