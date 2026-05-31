@@ -8,8 +8,8 @@
 
 using namespace std;
 
-MaiorOuMenorController::MaiorOuMenorController(Client *loggedClient){
-    this->loggedClient = loggedClient;
+MaiorOuMenorController::MaiorOuMenorController(Jogador *joogadorAutenticado){
+    this->loggedClient = joogadorAutenticado;
 }
 
 void MaiorOuMenorController::playGame()
@@ -52,8 +52,8 @@ void MaiorOuMenorController::playGame()
 
     int totalTentativas = this->game.getTentativasAtuais();
     cout << "Tentantivas realizadas: " << this->game.getTentativasAtuais() << endl;
-    this->loggedClient.setLeastTrys(totalTentativas);
+    this->loggedClient->setLeastTrys(totalTentativas);
     Ranking sistemaRanking;
-    sistemaRanking.atualizarMaiorMenor(this->loggedClient.username, this->loggedClient.leastTrys);
-    cout << "Recorde Pessoal: " << this->loggedClient.leastTrys << endl;
+    sistemaRanking.atualizarMaiorMenor(this->loggedClient->username, this->loggedClient->leastTrys);
+    cout << "Recorde Pessoal: " << this->loggedClient->leastTrys << endl;
 }

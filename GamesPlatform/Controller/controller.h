@@ -11,9 +11,10 @@
 using namespace std;
 
 
-struct Client
+struct Jogador
 {
     string username;
+    string password;
     int leastTrys = 10000;
 
     void setLeastTrys(int tentativas)
@@ -29,9 +30,9 @@ class MaiorOuMenorController
 {
 private:
     MaiorOuMenor game;
-    Client *loggedClient;
+    Jogador *loggedClient;
 public:
-    MaiorOuMenorController(Client *loggedClient);
+    MaiorOuMenorController(Jogador *jogadorAutenticado);
     void playGame();
 };
 
