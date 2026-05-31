@@ -3,11 +3,13 @@
 //
 
 #include "../Controller/controller.h"
+#include "../Ranking/Ranking.h"
 #include <iostream>
 
 using namespace std;
 
-MaiorOuMenorController::MaiorOuMenorController(){
+MaiorOuMenorController::MaiorOuMenorController(Client *loggedClient){
+    this->loggedClient = loggedClient;
 }
 
 void MaiorOuMenorController::playGame()
@@ -47,5 +49,11 @@ void MaiorOuMenorController::playGame()
     }
 
     cout << "\n PARABENS! Adivinhaste o numero secreto!" << endl;
+
+    int totalTentativas = this->game.getTentativasAtuais();
     cout << "Tentantivas realizadas: " << this->game.getTentativasAtuais() << endl;
+    this->loggedClient.setLeastTrys(totalTentativas);
+    Ranking sistemaRanking;
+    sistemaRanking.atualizarMaiorMenor(this->loggedClient.username, this->loggedClient.leastTrys);
+    cout << "Recorde Pessoal: " << this->loggedClient.leastTrys << endl;
 }

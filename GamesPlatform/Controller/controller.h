@@ -6,14 +6,32 @@
 #define FSOFT2026_1DA_1_CONTROLLER_H
 
 #include "MaiorOuMenor.h"
+#include "../Ranking/Ranking.h"
 
+using namespace std;
+
+
+struct Client
+{
+    string username;
+    int leastTrys = 10000;
+
+    void setLeastTrys(int tentativas)
+    {
+        if (tentativas < leastTrys)
+        {
+            leastTrys = tentativas;
+        }
+    }
+};
 
 class MaiorOuMenorController
 {
 private:
     MaiorOuMenor game;
+    Client *loggedClient;
 public:
-    MaiorOuMenorController();
+    MaiorOuMenorController(Client *loggedClient);
     void playGame();
 };
 
