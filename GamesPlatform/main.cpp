@@ -3,17 +3,29 @@
 #include <vector>
 #include "View/BlackjackView.h"
 #include "Controller/BlackjackController.h"
+#include "Controller/MaiorOuMenorController.h"
 
 using namespace std;
 
-struct User {
+struct Jogador
+{
     string username;
-    double balance = 1000.0;
+    string password;
+    double saldo = 1000.0;
+    int leastTrys = 10000;
+
+    void setLeastTrys(int tentativas)
+    {
+        if (tentativas < leastTrys)
+        {
+            leastTrys = tentativas;
+        }
+    }
 };
 
 int main() {
-    vector<User> memoryDb;
-    User* loggedInUser = nullptr;
+    vector<Jogador> memoryDb;
+    Jogador* loggedInUser = nullptr;
     BlackjackView globalView;
     int choice = 0;
 
@@ -62,7 +74,7 @@ int main() {
     }
 
     while (true) {
-        globalView.displayHub(loggedInUser->username, loggedInUser->balance);
+        globalView.displayHub(loggedInUser->username, loggedInUser->saldo);
         cin >> choice;
 
         if (choice == 1) {
@@ -70,8 +82,8 @@ int main() {
         }
         else if (choice == 2) {
             globalView.displayMensagem("\nA inicializar o modulo do Blackjack...");
-            BlackjackController blackjackCtrl(loggedInUser->balance);
-            blackjackCtrl.playBlackjackRound(loggedInUser->balance);
+            BlackjackController blackjackCtrl(loggedInUser->saldo);
+            blackjackCtrl.playBlackjackRound(loggedInUser->saldo);
         }
         else if (choice == 3) {
             globalView.displayMensagem("\nA chamar o jogo: Jogo do Galo... (Falta integrar)");
