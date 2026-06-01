@@ -4,24 +4,10 @@
 #include "View/BlackjackView.h"
 #include "Controller/BlackjackController.h"
 #include "Controller/MaiorOuMenorController.h"
+#include "Model/Jogador.h"
 
 using namespace std;
 
-struct Jogador
-{
-    string username;
-    string password;
-    double saldo = 1000.0;
-    int leastTrys = 10000;
-
-    void setLeastTrys(int tentativas)
-    {
-        if (tentativas < leastTrys)
-        {
-            leastTrys = tentativas;
-        }
-    }
-};
 
 int main() {
     vector<Jogador> memoryDb;

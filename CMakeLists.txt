@@ -18,4 +18,5 @@ add_executable(fsoft2026_1DA_1
         GamesPlatform/Model/MaiorOuMenor.cpp
         GamesPlatform/JogoDoGalo/Galo.cpp
         GamesPlatform/Ranking/Ranking.cpp
+        GamesPlatform/Model/Jogador.h
 )
