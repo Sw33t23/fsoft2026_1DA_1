@@ -7,8 +7,8 @@
  
 class RankingController {
 public:
-    void registarBlackjack  (const std::string& username, int saldo);
-    void registarGalo       (const std::string& username, int vitorias_consecutivas);
+    void registarBlackjack (const std::string& username, int saldo);
+    void registarGalo (const std::string& username, int vitorias_consecutivas);
     void registarMaiorMenor (const std::string& username, int tentativas);
  
     void consultarRanking();
