@@ -16,8 +16,8 @@ public:
     int pedirPalpite() const;
     void mostrarFeedbackPalpite(int estadojogo) const;
     void mostrarTentativas(int tentativas) const;
-
-
+    void mostrarResultadoFinal(int tentativas, int recorde);
+    void mostrarAviso(const string &mensagem) const;
 };
 
 
