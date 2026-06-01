@@ -8,8 +8,8 @@
 
 using namespace std;
 
-MaiorOuMenorController::MaiorOuMenorController(Jogador *joogadorAutenticado){
-    this->loggedClient = joogadorAutenticado;
+MaiorOuMenorController::MaiorOuMenorController(Jogador *jogadorAutenticado){
+    this->loggedClient = jogadorAutenticado;
 }
 
 void MaiorOuMenorController::playGame()

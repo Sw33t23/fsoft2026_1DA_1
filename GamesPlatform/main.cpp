@@ -2,7 +2,7 @@
 
 int main()
 {
-    MaiorOuMenorController MaiorOuMenorController;
+    MaiorOuMenorController MaiorOuMenorController(Jogador *jogadorAutenticado);
 
     MaiorOuMenorController.playGame();
 
