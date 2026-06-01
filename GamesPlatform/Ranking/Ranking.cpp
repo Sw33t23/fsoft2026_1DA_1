@@ -109,8 +109,8 @@ void Ranking::atualizarMaiorMenor(std::string username, int tentativas) {
 
 // Mostrar o top 10
 
-void Ranking::exibirTop10(std::vector<EntradaRanking> lista, string titulo, string colunaValor) {
-    std::cout << "\n=== TOP 10 - " << titulo << " ===\n";
+void Ranking::exibirTop10(std::vector<EntradaRanking> lista, string nomeJogo, string colunaValor) {
+    std::cout << "\n=== TOP 10 - " << nomeJogo << " ===\n";
 
     if (lista.empty()) {
         std::cout << "Sem registos ainda.\n";

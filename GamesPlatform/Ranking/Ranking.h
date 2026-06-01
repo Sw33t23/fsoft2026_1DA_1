@@ -25,7 +25,7 @@ private:
     std::vector<EntradaRanking> rankingGalo;
     std::vector<EntradaRanking> rankingMaiorMenor;
 
-    void exibirTop10(std::vector<EntradaRanking> lista, string titulo, string colunaValor);
+    void exibirTop10(std::vector<EntradaRanking> lista, string nomeJogo, string colunaValor);
 };
 
 #endif //UNTITLED1_RANKING_H
