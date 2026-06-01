@@ -25,11 +25,11 @@ public:
 
 MaiorOuMenor::MaiorOuMenor() : limiteMax(100), tentativasAtuais(0), numeroSecreto(0)
 {
-    static bool random = false;
-    if (!random)
+    static bool estadojogo = false;
+    if (!estadojogo)
     {
         srand(time(NULL));
-        random = true;
+        estadojogo = true;
     }
 }
 
