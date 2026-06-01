@@ -12,7 +12,7 @@ include_directories(GamesPlatform/View)
 
 add_executable(fsoft2026_1DA_1
         GamesPlatform/main.cpp
-        GamesPlatform/blackjack/blackjack.cpp
+        GamesPlatform/Model/blackjack.cpp
         GamesPlatform/View/BlackjackView.cpp
         GamesPlatform/Controller/BlackjackController.cpp
         GamesPlatform/Model/MaiorOuMenor.cpp
