@@ -2,7 +2,7 @@
 // Created by andre on 30/05/2026.
 //
 
-#include "../Controller/controller.h"
+#include "../Controller/MaiorOuMenorController.h"
 #include "../Ranking/Ranking.h"
 #include <iostream>
 
