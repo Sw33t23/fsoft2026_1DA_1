@@ -19,4 +19,5 @@ add_executable(fsoft2026_1DA_1
         GamesPlatform/Ranking/Ranking.h
         GamesPlatform/Ranking/Ranking.cpp
         GamesPlatform/View/MenorOuMaiorView.h
+        GamesPlatform/View/MenorOuMaiorView.cpp
 )
