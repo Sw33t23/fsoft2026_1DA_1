@@ -1,7 +1,7 @@
 #ifndef BLACKJACKCONTROLLER_H
 #define BLACKJACKCONTROLLER_H
 
-#include "../blackjack/blackjack.h"
+#include "../Model/blackjack.h"
 #include "../View/BlackjackView.h"
 
 class BlackjackController {
