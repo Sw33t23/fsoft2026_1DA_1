@@ -1,0 +1,140 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="h4xU8x9AnvmWezxyOQd6">
+    <mxGraphModel dx="1177" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="controller:Controller" vertex="1">
+          <mxGeometry height="836" width="162" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="view:View" vertex="1">
+          <mxGeometry height="836" width="150" x="232" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-3" parent="hYrvaiHem-OtQ2bwbssw-2" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry height="62" width="10" x="70" y="107" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="rankingView:RankingView" vertex="1">
+          <mxGeometry height="836" width="202" x="432" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-5" parent="hYrvaiHem-OtQ2bwbssw-4" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry height="530" width="10" x="96" y="211" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="playerService:PlayerService" vertex="1">
+          <mxGeometry height="836" width="209" x="684" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-7" parent="hYrvaiHem-OtQ2bwbssw-6" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry height="364" width="10" x="100" y="263" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-8" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="repo:PlayerRepositoryMemory" vertex="1">
+          <mxGeometry height="836" width="233" x="943" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-9" parent="hYrvaiHem-OtQ2bwbssw-8" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry height="55" width="10" x="112" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-10" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="model:Plataforma" vertex="1">
+          <mxGeometry height="836" width="150" x="1226" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-11" parent="hYrvaiHem-OtQ2bwbssw-10" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry height="51" width="10" x="70" y="419" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-12" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="playerContainer:PlayerContainer" vertex="1">
+          <mxGeometry height="836" width="247" x="1426" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-13" parent="hYrvaiHem-OtQ2bwbssw-12" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry height="57" width="10" x="119" y="523" as="geometry" />
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-14" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-3" value="1. menuPrincipal()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="213" y="127" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-16" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-1" value="opcao (Ranking)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="214" y="179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-18" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-5" value="2. exibirRanking()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="326" y="231" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-20" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-7" value="3. obterTop10()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="453" y="283" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-22" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-7" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-9" value="3.1. getModel()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="935" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-24" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-8" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-7" value="model">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="936" y="387" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-26" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-7" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-11" value="3.2. getPlayerContainer()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1055" y="439" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-28" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-10" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-7" value="container">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1056" y="491" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-30" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-7" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-13" value="3.3. getListaOrdenada()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1180" y="543" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-32" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-12" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-7" value="listaJogadores">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1181" y="595" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-34" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-7" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-1" value="top10Dados">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="454" y="647" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-36" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-5" value="4. printRanking(top10Dados)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="324" y="699" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hYrvaiHem-OtQ2bwbssw-38" edge="1" parent="1" source="hYrvaiHem-OtQ2bwbssw-5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="hYrvaiHem-OtQ2bwbssw-1" value="voltar">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="327" y="751" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

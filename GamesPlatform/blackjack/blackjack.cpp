@@ -54,7 +54,7 @@ private:
             for (auto& c : dealerHand) c.display();
             cout << " (Total: " << calculateScore(dealerHand) << ")";
         }
-        cout << "\nPlayer: ";
+        cout << "\nJogador: ";
         for (auto& c : playerHand) c.display();
         cout << " (Total: " << calculateScore(playerHand) << ")\n";
     }
@@ -69,18 +69,18 @@ public:
 
         while (keepPlaying && balance > 0) {
             cout << "\n================================" << endl;
-            cout << "Current Balance: $" << balance << endl;
+            cout << "Saldo Atual: $" << balance << endl;
 
             // 1. Betting System
             int bet = 0;
             while (true) {
-                cout << "Choose bet (10, 20, 50, 100): ";
+                cout << "Escolher Aposta (10, 20, 50, 100): ";
                 cin >> bet;
                 if (bet == 10 || bet == 20 || bet == 50 || bet == 100) {
                     if (bet <= balance) break;
-                    else cout << "Insufficient funds!" << endl;
+                    else cout << "Dinheiro Insuficiente!" << endl;
                 } else {
-                    cout << "Invalid bet amount." << endl;
+                    cout << "Aposta inválida." << endl;
                 }
             }
 
@@ -97,7 +97,7 @@ public:
             // Player's Turn
             while (calculateScore(playerHand) < 21) {
                 displayHands(true);
-                cout << "Hit (h) or Stand (s)? ";
+                cout << "Hit (h) ou Stand (s)? ";
                 char choice; cin >> choice;
                 if (choice == 'h') {
                     playerHand.push_back(deck.back()); deck.pop_back();
@@ -119,29 +119,29 @@ public:
 
             // 2. Settlement (Updating Balance)
             if (playerBusted) {
-                cout << "Bust! You lose $" << bet << endl;
+                cout << "Estourou! Perdeu $" << bet << endl;
                 balance -= bet;
             } else if (dScore > 21 || pScore > dScore) {
-                cout << "WIN! You gained $" << bet << endl;
+                cout << "GANHOU! Recebeu $" << bet << endl;
                 balance += bet;
             } else if (pScore < dScore) {
-                cout << "Dealer wins! You lose $" << bet << endl;
+                cout << "Dealer ganhou! Perdeu $" << bet << endl;
                 balance -= bet;
             } else {
-                cout << "Push! Bet returned." << endl;
+                cout << "Empate! Aposta devolvida." << endl;
             }
 
             // 3. Keep Playing Logic
             if (balance > 0) {
-                cout << "\nPlay another round? (y/n): ";
+                cout << "\nJogar mais uma rodada? (y/n): ";
                 char again; cin >> again;
                 if (again != 'y') keepPlaying = false;
             } else {
-                cout << "You're out of money! Game Over." << endl;
+                cout << "Ficou sem dinheiro! Fim de jogo." << endl;
                 keepPlaying = false;
             }
         }
-        cout << "Final Balance: $" << balance << "\nThanks for playing!" << endl;
+        cout << "Saldo Final: $" << balance << "\nObrigado por jogar!" << endl;
     }
 };
 
