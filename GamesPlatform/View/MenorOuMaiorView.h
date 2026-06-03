@@ -4,9 +4,8 @@
 
 #ifndef FSOFT2026_1DA_1_MENOROUMAIORVIEW_H
 #define FSOFT2026_1DA_1_MENOROUMAIORVIEW_H
-#include <exception>
 
-
+#include <string>
 using namespace std;
 
 class MenorOuMaiorView
@@ -16,7 +15,7 @@ public:
     int pedirPalpite() const;
     void mostrarFeedbackPalpite(int estadojogo) const;
     void mostrarTentativas(int tentativas) const;
-    void mostrarResultadoFinal(int tentativas, int recorde);
+    void mostrarResultadoFinal(int tentativas, int recorde) const;
     void mostrarAviso(const string &mensagem) const;
 };
 
