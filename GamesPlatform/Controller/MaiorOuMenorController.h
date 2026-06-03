@@ -7,6 +7,7 @@
 
 #include "../Model/MaiorOuMenor.h"
 #include "../Model/RankingModel.h"
+#include "../Model/Jogador.h"
 
 using namespace std;
 
@@ -16,8 +17,10 @@ class MaiorOuMenorController
 private:
     MaiorOuMenor game;
     Jogador *loggedClient;
+    RankingModel *ranking;
+
 public:
-    MaiorOuMenorController(Jogador *jogadorAutenticado);
+    MaiorOuMenorController(Jogador *jogadorAutenticado, RankingModel *ranking);
     void playGame();
 };
 

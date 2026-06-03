@@ -3,57 +3,52 @@
 //
 
 #include "../Controller/MaiorOuMenorController.h"
-#include "../Ranking/Ranking.h"
-#include <iostream>
+#include "../Model/RankingModel.h"
+#include <exception>
+#include "MenorOuMaiorView.h"
 
 using namespace std;
 
-MaiorOuMenorController::MaiorOuMenorController(Jogador *jogadorAutenticado){
+MaiorOuMenorController::MaiorOuMenorController(Jogador *jogadorAutenticado, RankingModel *ranking){
     this->loggedClient = jogadorAutenticado;
+    this->ranking = ranking;
 }
 
 void MaiorOuMenorController::playGame()
 {
-    this->game.iniciarJogoNovo();
+    MenorOuMaiorView view;
 
-    cout << "==== MAIOR OU MENOR ====" << endl;
-    cout << "REGRAS:" << endl;
-    cout << "- Deve adivinhar um numero aleatorio de 1 a 100" << endl;
-    cout << "- Serao contadas as tentativas que precisou para acertar" << endl;
+    game.iniciarJogoNovo();
+    view.mostrarInstrucoes();
 
-    int estadoJogo = -1;
-    int palpite;
+    bool acertou = false;
 
-    while (estadoJogo != 0)
+    while (!acertou)
     {
-        cout << "\nIntroduz o teu palpite: ";
-        cin >> palpite;
-
+        int palpite = view.pedirPalpite();
         try
         {
-            estadoJogo = this->game.verificarPalpite(palpite);
+            int resultado = game.verificarPalpite(palpite);
 
-            if (estadoJogo == 1)
+            if (resultado == 0)
             {
-                cout << "O teu palpite esta ACIMA do numero!" << endl;
+                int recordeAntigo = loggedClient->leastTrys;
+                loggedClient->setLeastTrys(game.getTentativasAtuais());
+
+                ranking->atualizarMaiorMenor(loggedClient->username, game.getTentativasAtuais());
+
+                view.mostrarResultadoFinal(game.getTentativasAtuais(), recordeAntigo);
+                acertou = true;
             }
-            if (estadoJogo == -1)
+            else
             {
-                cout << "O teu palpite esta ABAIXO do numero!" << endl;
+                view.mostrarFeedbackPalpite(resultado);
+                view.mostrarTentativas(game.getTentativasAtuais());
             }
         }
-        catch ( const std::exception &e )
+        catch (const exception &e)
         {
-            cout << "AVISO! " << e.what() << endl;
+            view.mostrarAviso(e.what());
         }
     }
-
-    cout << "\n PARABENS! Adivinhaste o numero secreto!" << endl;
-
-    int totalTentativas = this->game.getTentativasAtuais();
-    cout << "Tentantivas realizadas: " << this->game.getTentativasAtuais() << endl;
-    this->loggedClient->setLeastTrys(totalTentativas);
-    Ranking sistemaRanking;
-    sistemaRanking.atualizarMaiorMenor(this->loggedClient->username, this->loggedClient->leastTrys);
-    cout << "Recorde Pessoal: " << this->loggedClient->leastTrys << endl;
 }
