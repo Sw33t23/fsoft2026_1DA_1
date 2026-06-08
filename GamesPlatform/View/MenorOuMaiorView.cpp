@@ -58,6 +58,15 @@ void MenorOuMaiorView::mostrarResultadoFinal(int tentativas, int recorde) const
     }
 }
 
+bool MenorOuMaiorView::repetirJogo() const
+{
+    char opcao;
+    cout << "\n Quer continuar a jogar? (y/n) ";
+    cin >> opcao;
+
+    return (opcao == 'y' || opcao == 'Y');
+}
+
 
 void MenorOuMaiorView::mostrarAviso(const string& mensagem) const
 {

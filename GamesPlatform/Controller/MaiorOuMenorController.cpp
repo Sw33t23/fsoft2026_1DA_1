@@ -17,38 +17,44 @@ MaiorOuMenorController::MaiorOuMenorController(Jogador *jogadorAutenticado, Rank
 void MaiorOuMenorController::playGame()
 {
     MenorOuMaiorView view;
+    bool repetirJogo = true;
 
-    game.iniciarJogoNovo();
-    view.mostrarInstrucoes();
+    do{
+        game.iniciarJogoNovo();
+        view.mostrarInstrucoes();
 
-    bool acertou = false;
+        bool acertou = false;
 
-    while (!acertou)
-    {
-        int palpite = view.pedirPalpite();
-        try
+        while (!acertou)
         {
-            int resultado = game.verificarPalpite(palpite);
-
-            if (resultado == 0)
+            int palpite = view.pedirPalpite();
+            try
             {
-                int recordeAntigo = loggedClient->leastTrys;
-                loggedClient->setLeastTrys(game.getTentativasAtuais());
+                int resultado = game.verificarPalpite(palpite);
 
-                ranking->atualizarMaiorMenor(loggedClient->username, game.getTentativasAtuais());
+                if (resultado == 0)
+                {
+                    int recordeAntigo = loggedClient->leastTrys;
+                    loggedClient->setLeastTrys(game.getTentativasAtuais());
 
-                view.mostrarResultadoFinal(game.getTentativasAtuais(), recordeAntigo);
-                acertou = true;
+                    ranking->atualizarMaiorMenor(loggedClient->username, game.getTentativasAtuais());
+
+                    view.mostrarResultadoFinal(game.getTentativasAtuais(), recordeAntigo);
+                    acertou = true;
+                }
+                else
+                {
+                    view.mostrarFeedbackPalpite(resultado);
+                    view.mostrarTentativas(game.getTentativasAtuais());
+                }
             }
-            else
+            catch (const exception &e)
             {
-                view.mostrarFeedbackPalpite(resultado);
-                view.mostrarTentativas(game.getTentativasAtuais());
+                view.mostrarAviso(e.what());
             }
+
+            repetirJogo = view.repetirJogo();
         }
-        catch (const exception &e)
-        {
-            view.mostrarAviso(e.what());
-        }
-    }
+    } while (repetirJogo);
+
 }
