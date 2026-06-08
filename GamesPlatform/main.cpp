@@ -3,16 +3,20 @@
 #include <vector>
 #include "View/BlackjackView.h"
 #include "Controller/BlackjackController.h"
-#include "Controller/MaiorOuMenorController.h"
-#include "Model/Jogador.h"
+#include "Model/RankingModel.h"
 
 using namespace std;
 
+struct User {
+    string username;
+    double balance = 1000.0;
+};
 
 int main() {
-    vector<Jogador> memoryDb;
-    Jogador* loggedInUser = nullptr;
+    vector<User> memoryDb;
+    User* loggedInUser = nullptr;
     BlackjackView globalView;
+    RankingModel sistemaRanking; // Instância única do ranking na memória RAM
     int choice = 0;
 
     while (loggedInUser == nullptr) {
@@ -60,7 +64,7 @@ int main() {
     }
 
     while (true) {
-        globalView.displayHub(loggedInUser->username, loggedInUser->saldo);
+        globalView.displayHub(loggedInUser->username, loggedInUser->balance);
         cin >> choice;
 
         if (choice == 1) {
@@ -68,11 +72,12 @@ int main() {
         }
         else if (choice == 2) {
             globalView.displayMensagem("\nA inicializar o modulo do Blackjack...");
-            BlackjackController blackjackCtrl(loggedInUser->saldo);
-            blackjackCtrl.playBlackjackRound(loggedInUser->saldo);
+            // Passa o username e a instância global de ranking
+            BlackjackController blackjackCtrl(loggedInUser->username, loggedInUser->balance);
+            blackjackCtrl.playBlackjackRound(loggedInUser->balance, sistemaRanking);
         }
         else if (choice == 3) {
-            globalView.displayMensagem("\nA chamar o jogo: Jogo do Galo...");
+            globalView.displayMensagem("\nA chamar o jogo: Jogo do Galo... (Falta integrar)");
         }
         else if (choice == 4) {
             globalView.displayMensagem("Sessao terminada de " + loggedInUser->username);
