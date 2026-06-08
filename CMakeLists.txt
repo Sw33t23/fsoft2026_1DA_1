@@ -1,23 +1,22 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.20) # Version 4.1 is very high; 3.20 is standard
 project(fsoft2026_1DA_1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(GamesPlatform)
+# Tell CMake where to look for your .h files
 include_directories(GamesPlatform/MaiorOuMenor)
 include_directories(GamesPlatform/blackjack)
-include_directories(GamesPlatform/Controller)
-include_directories(GamesPlatform/View)
-include_directories(GamesPlatform/Model)
 
 add_executable(fsoft2026_1DA_1
         GamesPlatform/main.cpp
-        GamesPlatform/Model/blackjack.cpp
-        GamesPlatform/View/BlackjackView.cpp
-        GamesPlatform/Controller/BlackjackController.cpp
-        GamesPlatform/Model/RankingModel.cpp
-        GamesPlatform/Model/MaiorOuMenor.cpp
-        GamesPlatform/Controller/controller.cpp
+        GamesPlatform/MaiorOuMenor/MaiorOuMenor.cpp
+        GamesPlatform/MaiorOuMenor/MaiorOuMenor.h
+        GamesPlatform/blackjack/blackjack.cpp
+        GamesPlatform/blackjack/blackjack.cpp
+        GamesPlatform/Controller/MaiorOuMenorController.h
+        GamesPlatform/Controller/MaiorOuMenorController.cpp
         GamesPlatform/JogoDoGalo/Galo.cpp
+        GamesPlatform/Ranking/Ranking.h
         GamesPlatform/Ranking/Ranking.cpp
+        GamesPlatform/View/MenorOuMaiorView.h
 )
