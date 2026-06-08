@@ -78,8 +78,13 @@ int main() {
             blackjackCtrl.playBlackjackRound(loggedInUser->balance, sistemaRanking);
         }
         else if (choice == 3) {
-            globalView.displayMensagem("\nA chamar o jogo: Jogo do Galo... (Falta integrar)");
-        }
+
+                globalView.displayMensagem("\nA inicializar o modulo do Jogo do Galo...");
+
+                // CHAMA A FUNÇÃO DO TEU JOGO PASSAREI O USERNAME DO UTILIZADOR LOGADO:
+                jogarGalo(loggedInUser->username);
+
+            }
         else if (choice == 4) {
             globalView.displayMensagem("Sessao terminada de " + loggedInUser->username);
             loggedInUser = nullptr;
