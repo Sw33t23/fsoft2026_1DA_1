@@ -28,7 +28,7 @@ void BlackjackController::playBlackjackRound(double& userBalance, RankingModel& 
         model.hitPlayer(); model.hitPlayer();
         model.hitDealer(); model.hitDealer();
 
-        // 1. TURNO DO JOGADOR - Validação explícita de Hit (h) e Stand (s)
+        // TURNO DO JOGADOR
         while (model.calculateScore(model.getPlayerHand()) < 21) {
             view.displayHands(model.getPlayerHand(), model.calculateScore(model.getPlayerHand()),
                               model.getDealerHand(), model.calculateScore(model.getDealerHand()), true);
@@ -40,7 +40,7 @@ void BlackjackController::playBlackjackRound(double& userBalance, RankingModel& 
                 model.hitPlayer();
             }
             else if (choice == 's' || choice == 'S') {
-                break; // Stand explícito
+                break;
             }
             else {
                 view.displayMensagem("Opcao invalida! Escolha 'h' para Hit ou 's' para Stand.");
@@ -71,18 +71,18 @@ void BlackjackController::playBlackjackRound(double& userBalance, RankingModel& 
             break;
         }
 
-        // 2. LOGICA DE CONTINUAR/PARAR - Agora valida 'n' ou 'N' para sair
+        // LOGICA DE CONTINUAR/PARAR
         while (true) {
             view.displayMensagem("\nQuer jogar mais uma ronda? (y/n): ");
             char again;
             std::cin >> again;
 
             if (again == 'n' || again == 'N') {
-                keepPlaying = false;
+                keepPlaying = false; // Quebra o ciclo principal do Blackjack
                 break;
             }
             else if (again == 'y' || again == 'Y') {
-                break; // Continua o jogo (sai deste mini loop e volta ao loop principal)
+                break;
             }
             else {
                 view.displayMensagem("Opcao invalida! Digite 'y' para sim ou 'n' para nao.");
@@ -90,8 +90,11 @@ void BlackjackController::playBlackjackRound(double& userBalance, RankingModel& 
         }
     }
 
-    // Gravação no ranking dos teus colegas ao sair ou ir à falência
+    // Gravação no ranking antes de sair
     view.displayMensagem("\nA atualizar o teu registo no Ranking Global do Blackjack...");
     ranking.atualizarBlackjack(playerUsername, static_cast<int>(model.getBalance()));
-    view.displayMensagem("Ranking updated successfully!");
+    view.displayMensagem("Ranking atualizado com sucesso!");
+
+    // Mensagem de transição para o utilizador saber que está a voltar ao Hub
+    view.displayMensagem("\nA sair do Blackjack... A redirecionar para o Menu Principal da Plataforma.");
 }
