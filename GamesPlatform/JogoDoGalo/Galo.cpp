@@ -1,20 +1,18 @@
-#include <iostream>
-#include <string>
-#include <climits>
+// ============================================================
+//  Galo.cpp  –  Ponto de entrada do Jogo do Galo
+//
+//  Liga o main principal ao padrão MVC do jogo:
+//    View  -> GaloView
+//    Controller -> GaloController
+// ============================================================
 
-char tabuleiro[3][3];
-int vitorias = 0;
-std::string nomeJogador;
+#include "Galo.h"
+#include "../view/GaloView.h"
+#include "../Controller/GaloController.h"
 
-
-int main() {
-    std::cout << "Bem-vindo ao Jogo do Galo!\nIntroduza o seu nome: ";
-    std::getline(std::cin, nomeJogador);
-    if (nomeJogador.empty()) nomeJogador = "Jogador";
-    std::cout << "\n=========================================\n";
-    std::cout << "                 JOGO DO GALO    \n";
-    std::cout << "=========================================\n";
-    std::cout << "  Voce joga com 'X', a IA joga com 'O'.\n";
-    std::cout << "  Introduza a linha (1-3) e a coluna (1-3).\n";
-    std::cout << "=========================================\n";
+// Chamado pelo main principal da plataforma
+void jogarGalo(const std::string& nomeJogador) {
+    GaloView view;                    // camada de apresentação
+    GaloController controller(view);  // lógica do jogo
+    controller.iniciar(nomeJogador);  // arranca o jogo
 }
