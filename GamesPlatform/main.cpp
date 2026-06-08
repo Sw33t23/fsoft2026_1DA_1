@@ -4,6 +4,7 @@
 #include "View/BlackjackView.h"
 #include "Controller/BlackjackController.h"
 #include "Model/RankingModel.h"
+#include "Galo.h"
 
 using namespace std;
 
