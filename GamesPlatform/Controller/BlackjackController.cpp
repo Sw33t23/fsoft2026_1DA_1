@@ -1,9 +1,10 @@
 #include "BlackjackController.h"
 #include <iostream>
 
-BlackjackController::BlackjackController(double startingBalance) : model(startingBalance), view() {}
+BlackjackController::BlackjackController(std::string username, double startingBalance)
+    : model(startingBalance), view(), playerUsername(username) {}
 
-void BlackjackController::playBlackjackRound(double& userBalance) {
+void BlackjackController::playBlackjackRound(double& userBalance, RankingModel& ranking) {
     bool keepPlaying = true;
 
     while (keepPlaying && model.getBalance() > 0) {
@@ -67,4 +68,9 @@ void BlackjackController::playBlackjackRound(double& userBalance) {
         std::cin >> again;
         if (again != 'y') keepPlaying = false;
     }
+
+    // Gravação no ranking dos teus colegas ao sair ou ir à falência
+    view.displayMensagem("\nA atualizar o teu registo no Ranking Global do Blackjack...");
+    ranking.atualizarBlackjack(playerUsername, static_cast<int>(model.getBalance()));
+    view.displayMensagem("Ranking atualizado com sucesso!");
 }

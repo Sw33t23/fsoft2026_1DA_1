@@ -1,76 +1,33 @@
-#include "BlackjackController.h"
-#include <iostream>
+#include "RankingController.h"
 
-BlackjackController::BlackjackController(std::string username, double startingBalance)
-    : model(startingBalance), view(), playerUsername(username) {}
+void RankingController::registarBlackjack(const std::string& username, int saldo) {
+    model.atualizarBlackjack(username, saldo);
+}
 
-void BlackjackController::playBlackjackRound(double& userBalance, RankingModel& ranking) {
-    bool keepPlaying = true;
+void RankingController::registarGalo(const std::string& username, int vitorias_consecutivas) {
+    model.atualizarGalo(username, vitorias_consecutivas);
+}
 
-    while (keepPlaying && model.getBalance() > 0) {
-        int bet = 0;
-        while (true) {
-            view.displaySaldo(model.getBalance());
-            view.displayPedirAposta();
-            std::cin >> bet;
+void RankingController::registarMaiorMenor(const std::string& username, int tentativas) {
+    model.atualizarMaiorMenor(username, tentativas);
+}
 
-            if (bet == 10 || bet == 20 || bet == 50 || bet == 100) {
-                if (bet <= model.getBalance()) break;
-                else view.displayMensagem("Erro: Nao tem saldo suficiente para esta aposta.");
-            } else {
-                view.displayMensagem("Erro: Quantia invalida.");
-            }
+void RankingController::consultarRanking() {
+    int opcao = -1;
+
+    while (opcao != 0) {
+        opcao = view.pedirOpcaoMenu();
+
+        if (opcao == 1) {
+            view.exibirTop10(model.getBlackjack(),"Blackjack","Saldo");
+        } else if (opcao == 2) {
+            view.exibirTop10(model.getGalo(),"Galo","Streak");
+        } else if (opcao == 3) {
+            view.exibirTop10(model.getMaiorMenor(),"Maior ou Menor","Tentativas");
+        } else if (opcao == 0) {
+            view.mostrarAVoltar();
+        } else {
+            view.mostrarOpcaoInvalida();
         }
-
-        model.initializeDeck();
-        model.clearHands();
-
-        model.hitPlayer(); model.hitPlayer();
-        model.hitDealer(); model.hitDealer();
-
-        while (model.calculateScore(model.getPlayerHand()) < 21) {
-            view.displayHands(model.getPlayerHand(), model.calculateScore(model.getPlayerHand()),
-                              model.getDealerHand(), model.calculateScore(model.getDealerHand()), true);
-            view.displayOpcoesTurno();
-            char choice;
-            std::cin >> choice;
-
-            if (choice == 'h') model.hitPlayer();
-            else break;
-        }
-
-        int pScore = model.calculateScore(model.getPlayerHand());
-        bool playerBusted = (pScore > 21);
-
-        if (!playerBusted) {
-            while (model.calculateScore(model.getDealerHand()) < 17) {
-                model.hitDealer();
-            }
-        }
-
-        int dScore = model.calculateScore(model.getDealerHand());
-        view.displayHands(model.getPlayerHand(), pScore, model.getDealerHand(), dScore, false);
-        view.displayResultado(pScore, dScore, playerBusted, bet);
-
-        if (playerBusted) model.setBalance(model.getBalance() - bet);
-        else if (dScore > 21 || pScore > dScore) model.setBalance(model.getBalance() + bet);
-        else if (pScore < dScore) model.setBalance(model.getBalance() - bet);
-
-        userBalance = model.getBalance();
-
-        if (model.getBalance() <= 0) {
-            view.displayMensagem("Banca rota! O seu saldo chegou a 0.");
-            break;
-        }
-
-        view.displayMensagem("\nQuer jogar mais uma ronda? (y/n): ");
-        char again;
-        std::cin >> again;
-        if (again != 'y') keepPlaying = false;
     }
-
-    // Gravação no ranking dos teus colegas ao sair ou ir à falência
-    view.displayMensagem("\nA atualizar o teu registo no Ranking Global do Blackjack...");
-    ranking.atualizarBlackjack(playerUsername, static_cast<int>(model.getBalance()));
-    view.displayMensagem("Ranking atualizado com sucesso!");
 }
