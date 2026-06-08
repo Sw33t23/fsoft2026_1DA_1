@@ -72,7 +72,7 @@ int main() {
             blackjackCtrl.playBlackjackRound(loggedInUser->saldo);
         }
         else if (choice == 3) {
-            globalView.displayMensagem("\nA chamar o jogo: Jogo do Galo... (Falta integrar)");
+            globalView.displayMensagem("\nA chamar o jogo: Jogo do Galo...");
         }
         else if (choice == 4) {
             globalView.displayMensagem("Sessao terminada de " + loggedInUser->username);
