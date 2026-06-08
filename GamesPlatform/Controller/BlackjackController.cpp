@@ -28,6 +28,7 @@ void BlackjackController::playBlackjackRound(double& userBalance, RankingModel& 
         model.hitPlayer(); model.hitPlayer();
         model.hitDealer(); model.hitDealer();
 
+        // 1. TURNO DO JOGADOR - Validação explícita de Hit (h) e Stand (s)
         while (model.calculateScore(model.getPlayerHand()) < 21) {
             view.displayHands(model.getPlayerHand(), model.calculateScore(model.getPlayerHand()),
                               model.getDealerHand(), model.calculateScore(model.getDealerHand()), true);
@@ -35,8 +36,15 @@ void BlackjackController::playBlackjackRound(double& userBalance, RankingModel& 
             char choice;
             std::cin >> choice;
 
-            if (choice == 'h') model.hitPlayer();
-            else break;
+            if (choice == 'h' || choice == 'H') {
+                model.hitPlayer();
+            }
+            else if (choice == 's' || choice == 'S') {
+                break; // Stand explícito
+            }
+            else {
+                view.displayMensagem("Opcao invalida! Escolha 'h' para Hit ou 's' para Stand.");
+            }
         }
 
         int pScore = model.calculateScore(model.getPlayerHand());
@@ -63,14 +71,27 @@ void BlackjackController::playBlackjackRound(double& userBalance, RankingModel& 
             break;
         }
 
-        view.displayMensagem("\nQuer jogar mais uma ronda? (y/n): ");
-        char again;
-        std::cin >> again;
-        if (again != 'y') keepPlaying = false;
+        // 2. LOGICA DE CONTINUAR/PARAR - Agora valida 'n' ou 'N' para sair
+        while (true) {
+            view.displayMensagem("\nQuer jogar mais uma ronda? (y/n): ");
+            char again;
+            std::cin >> again;
+
+            if (again == 'n' || again == 'N') {
+                keepPlaying = false;
+                break;
+            }
+            else if (again == 'y' || again == 'Y') {
+                break; // Continua o jogo (sai deste mini loop e volta ao loop principal)
+            }
+            else {
+                view.displayMensagem("Opcao invalida! Digite 'y' para sim ou 'n' para nao.");
+            }
+        }
     }
 
     // Gravação no ranking dos teus colegas ao sair ou ir à falência
     view.displayMensagem("\nA atualizar o teu registo no Ranking Global do Blackjack...");
     ranking.atualizarBlackjack(playerUsername, static_cast<int>(model.getBalance()));
-    view.displayMensagem("Ranking atualizado com sucesso!");
+    view.displayMensagem("Ranking updated successfully!");
 }
