@@ -3,7 +3,7 @@
 // ============================================================
 
 #include "../../Headers/View/GaloView.h"
-#include "../../Headers/Exception/GaloException.h"  // <-- include do Utils
+#include "../../Headers/Exception/Exception.h"  // <-- include do Utils
 #include <iostream>
 #include <array>
 
