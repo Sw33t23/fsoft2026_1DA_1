@@ -2,7 +2,7 @@
 // Created by andre on 01/06/2026.
 //
 
-#include "MenorOuMaiorView.h"
+#include "../../Headers/View/MenorOuMaiorView.h"
 #include <iostream>
 
 using namespace std;
