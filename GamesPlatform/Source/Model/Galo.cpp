@@ -6,7 +6,7 @@
 //    Controller -> GaloController
 // ============================================================
 
-#include "Galo.h"
+#include "../../Headers/Model/Galo.h"
 #include "../../Headers/View/GaloView.h"
 #include "../../Headers/Controller/GaloController.h"
 // ============================================================
