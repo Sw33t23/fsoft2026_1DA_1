@@ -33,4 +33,8 @@ public:
     InvalidDataException(const std::string& msg) : message(msg) {}
     const char* what() const noexcept override { return message.c_str(); }
 };
+class GaloException {
+public:
+    static int getInt(const std::string& label);
+};
 #endif
