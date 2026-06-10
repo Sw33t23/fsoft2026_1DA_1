@@ -2,8 +2,8 @@
 //  GaloView.cpp  –  Implementação da View do Jogo do Galo
 // ============================================================
 
-#include "GaloView.h"
-#include "GaloException.h"  // <-- include do Utils
+#include "../../Headers/View/GaloView.h"
+#include "../../Headers/Exception/GaloException.h"  // <-- include do Utils
 #include <iostream>
 #include <array>
 
