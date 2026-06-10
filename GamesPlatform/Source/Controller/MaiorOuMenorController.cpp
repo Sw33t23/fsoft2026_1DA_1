@@ -3,7 +3,7 @@
 //
 
 #include "../../Headers/Controller/MaiorOuMenorController.h"
-#include "../../Headers/Model/RankingModel.h"
+#include "../../Headers/Model/Ranking.h"
 #include <exception>
 #include "MenorOuMaiorView.h"
 
