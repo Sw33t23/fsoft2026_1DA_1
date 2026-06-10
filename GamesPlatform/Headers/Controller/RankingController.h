@@ -14,7 +14,7 @@ public:
     void consultarRanking();
  
 private:
-    RankingModel model;
+    Ranking model;
     RankingView  view;
 };
 #endif

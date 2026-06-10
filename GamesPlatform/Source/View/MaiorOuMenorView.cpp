@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void MenorOuMaiorView::mostrarInstrucoes() const
+void MaiorOuMenorView::mostrarInstrucoes() const
 {
     cout << "\n========================================" << endl;
     cout << "           MAIOR OU MENOR                 " << endl;
@@ -17,7 +17,7 @@ void MenorOuMaiorView::mostrarInstrucoes() const
     cout << "- Serao contadas as tentativas que precisou para acertar" << endl;
 }
 
-int MenorOuMaiorView::pedirPalpite() const
+int MaiorOuMenorView::pedirPalpite() const
 {
     int palpite;
     cout << "Introduza o seu palpite: ";
@@ -25,7 +25,7 @@ int MenorOuMaiorView::pedirPalpite() const
     return palpite;
 }
 
-void MenorOuMaiorView::mostrarFeedbackPalpite(int estadojogo) const
+void MaiorOuMenorView::mostrarFeedbackPalpite(int estadojogo) const
 {
     if (estadojogo == 1)
     {
@@ -37,12 +37,12 @@ void MenorOuMaiorView::mostrarFeedbackPalpite(int estadojogo) const
     }
 }
 
-void MenorOuMaiorView::mostrarTentativas(int tentativas) const
+void MaiorOuMenorView::mostrarTentativas(int tentativas) const
 {
     cout << "Tentativas Atuais: " << tentativas << endl;
 }
 
-void MenorOuMaiorView::mostrarResultadoFinal(int tentativas, int recorde) const
+void MaiorOuMenorView::mostrarResultadoFinal(int tentativas, int recorde) const
 {
     cout << "=========== Parabens ===========" << tentativas << endl;
     cout << "Acertaste o numero secreto!" << endl;
@@ -59,7 +59,7 @@ void MenorOuMaiorView::mostrarResultadoFinal(int tentativas, int recorde) const
 }
 
 
-void MenorOuMaiorView::mostrarAviso(const string& mensagem) const
+void MaiorOuMenorView::mostrarAviso(const string& mensagem) const
 {
     cout << "AVISO: " << mensagem << endl;
 }

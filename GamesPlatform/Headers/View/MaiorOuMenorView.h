@@ -2,13 +2,13 @@
 // Created by andre on 01/06/2026.
 //
 
-#ifndef FSOFT2026_1DA_1_MENOROUMAIORVIEW_H
-#define FSOFT2026_1DA_1_MENOROUMAIORVIEW_H
+#ifndef FSOFT2026_1DA_1_MAIOROUMENORVIEW_H
+#define FSOFT2026_1DA_1_MAIOROUMENORVIEW_H
 
 #include <string>
 using namespace std;
 
-class MenorOuMaiorView
+class MaiorOuMenorView
 {
 public:
     void mostrarInstrucoes() const;
@@ -20,4 +20,4 @@ public:
 };
 
 
-#endif //FSOFT2026_1DA_1_MENOROUMAIORVIEW_H
+#endif //FSOFT2026_1DA_1_MAIOROUMENORVIEW_H

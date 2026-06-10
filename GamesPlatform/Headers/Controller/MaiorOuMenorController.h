@@ -17,10 +17,10 @@ class MaiorOuMenorController
 private:
     MaiorOuMenor game;
     Jogador *loggedClient;
-    RankingModel *ranking;
+    Ranking *ranking;
 
 public:
-    MaiorOuMenorController(Jogador *jogadorAutenticado, RankingModel *ranking);
+    MaiorOuMenorController(Jogador *jogadorAutenticado, Ranking *ranking);
     void playGame();
 };
 

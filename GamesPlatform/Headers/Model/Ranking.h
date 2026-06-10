@@ -12,7 +12,7 @@ struct EntradaRanking {
     int valor;
 };
  
-class RankingModel {
+class Ranking {
 public:
     void atualizarBlackjack (std::string username, int saldo);
     void atualizarGalo (std::string username, int vitorias_consecutivas);

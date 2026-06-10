@@ -2,7 +2,7 @@
  
 const int TOP_MAX = 10;
  
-void RankingModel::atualizarBlackjack(std::string username, int saldo) {
+void Ranking::atualizarBlackjack(std::string username, int saldo) {
  
     for (int i = 0; i < (int)rankingBlackjack.size(); i++) {
         if (rankingBlackjack[i].username == username) {
@@ -33,7 +33,7 @@ void RankingModel::atualizarBlackjack(std::string username, int saldo) {
     }
 }
  
-void RankingModel::atualizarGalo(std::string username, int vitorias_consecutivas) {
+void Ranking::atualizarGalo(std::string username, int vitorias_consecutivas) {
  
     for (int i = 0; i < (int)rankingGalo.size(); i++) {
         if (rankingGalo[i].username == username) {
@@ -64,7 +64,7 @@ void RankingModel::atualizarGalo(std::string username, int vitorias_consecutivas
     }
 }
  
-void RankingModel::atualizarMaiorMenor(std::string username, int tentativas) {
+void Ranking::atualizarMaiorMenor(std::string username, int tentativas) {
  
     for (int i = 0; i < (int)rankingMaiorMenor.size(); i++) {
         if (rankingMaiorMenor[i].username == username) {

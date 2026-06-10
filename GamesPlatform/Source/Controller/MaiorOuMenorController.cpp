@@ -5,18 +5,19 @@
 #include "../../Headers/Controller/MaiorOuMenorController.h"
 #include "../../Headers/Model/Ranking.h"
 #include <exception>
+#include "../../Headers/Exception/Exception.h"
 #include "../../Headers/View/MaiorOuMenorView.h"
 
 using namespace std;
 
-MaiorOuMenorController::MaiorOuMenorController(Jogador *jogadorAutenticado, RankingModel *ranking){
+MaiorOuMenorController::MaiorOuMenorController(Jogador *jogadorAutenticado, Ranking *ranking){
     this->loggedClient = jogadorAutenticado;
     this->ranking = ranking;
 }
 
 void MaiorOuMenorController::playGame()
 {
-    MenorOuMaiorView view;
+    MaiorOuMenorView view;
 
     game.iniciarJogoNovo();
     view.mostrarInstrucoes();

@@ -1,22 +1,28 @@
 cmake_minimum_required(VERSION 3.20) # Version 4.1 is very high; 3.20 is standard
 project(fsoft2026_1DA_1)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
-# Tell CMake where to look for your .h files
-include_directories(GamesPlatform/MaiorOuMenor)
-include_directories(GamesPlatform/blackjack)
+include_directories(GamesPlatform/Headers)
 
 add_executable(fsoft2026_1DA_1
         GamesPlatform/main.cpp
-        GamesPlatform/MaiorOuMenor/MaiorOuMenor.cpp
-        GamesPlatform/MaiorOuMenor/MaiorOuMenor.h
-        GamesPlatform/blackjack/blackjack.cpp
-        GamesPlatform/blackjack/blackjack.cpp
-        GamesPlatform/Controller/MaiorOuMenorController.h
-        GamesPlatform/Controller/MaiorOuMenorController.cpp
-        GamesPlatform/JogoDoGalo/Galo.cpp
-        GamesPlatform/Ranking/Ranking.h
-        GamesPlatform/Ranking/Ranking.cpp
-        GamesPlatform/View/MenorOuMaiorView.h
+        GamesPlatform/Source/Container/JogadorContainer.cpp
+        GamesPlatform/Source/Controller/BlackjackController.cpp
+        GamesPlatform/Source/Controller/GaloController.cpp
+        GamesPlatform/Source/Controller/JogadorController.cpp
+        GamesPlatform/Source/Controller/MaiorOuMenorController.cpp
+        GamesPlatform/Source/Controller/MenuController.cpp
+        GamesPlatform/Source/Controller/RankingController.cpp
+        GamesPlatform/Source/Model/Blackjack.cpp
+        GamesPlatform/Source/Model/Galo.cpp
+        GamesPlatform/Source/Model/MaiorOuMenor.cpp
+        GamesPlatform/Source/Model/Ranking.cpp
+        GamesPlatform/Source/Service/JogadorService.cpp
+        GamesPlatform/Source/View/BlackjackView.cpp
+        GamesPlatform/Source/View/GaloView.cpp
+        GamesPlatform/Source/View/JogadorView.cpp
+        GamesPlatform/Source/View/MaiorOuMenorView.cpp
+        GamesPlatform/Source/View/RankingView.cpp
+
 )

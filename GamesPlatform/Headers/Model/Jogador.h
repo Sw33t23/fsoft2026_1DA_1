@@ -15,6 +15,10 @@ struct Jogador
     double saldo = 1000.0;
     int leastTrys = 10000;
 
+    Jogador(string u, string p) : username(u), password(p) {}
+
+    Jogador() = default;
+
     void setLeastTrys(int tentativas)
     {
         if (tentativas < leastTrys)
