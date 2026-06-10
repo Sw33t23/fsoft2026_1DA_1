@@ -1,7 +1,7 @@
 #ifndef GALOCONTROLLER_H
 #define GALOCONTROLLER_H
 
-#include "GaloView.h"
+#include "../View/GaloView.h"
 #include <array>
 #include <string>
 
