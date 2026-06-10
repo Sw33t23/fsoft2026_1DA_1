@@ -5,7 +5,7 @@
 //  Cada bloco de código tem o número da mensagem correspondente.
 // ============================================================
 
-#include "GaloController.h"
+#include "../../Headers/Controller/GaloController.h"
 #include <iostream>
 #include <cstdlib>   // rand
 #include <ctime>     // time
