@@ -3,7 +3,7 @@
  
 #include <string>
 #include <vector>
-#include "../Model/RankingModel.h"
+#include "../Model/Ranking.h"
  
 class RankingView {
 public:
