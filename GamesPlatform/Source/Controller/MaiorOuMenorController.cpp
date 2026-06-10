@@ -46,6 +46,10 @@ void MaiorOuMenorController::playGame()
                 view.mostrarTentativas(game.getTentativasAtuais());
             }
         }
+        catch (const InvalidDataException &e) 
+        {
+            view.mostrarAviso(e.what()); 
+        }
         catch (const exception &e)
         {
             view.mostrarAviso(e.what());
