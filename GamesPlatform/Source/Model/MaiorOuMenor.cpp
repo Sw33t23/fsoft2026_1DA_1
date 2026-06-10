@@ -3,7 +3,7 @@
 //
 
 
-#include "MaiorOuMenor.h"
+#include "../../Headers/Model/MaiorOuMenor.h"
 #include <cstdlib>
 #include <ctime>
 #include <stdexcept>

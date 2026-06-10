@@ -1,5 +1,6 @@
-#include "blackjack.h"
+#include "../../Headers/Model/Blackjack.h"
 #include <algorithm>
+#include <random>
 #include <ctime>
 
 Blackjack::Blackjack(double startingBalance) : balance(startingBalance) {
@@ -15,7 +16,7 @@ void Blackjack::initializeDeck() {
             deck.push_back({ranks[j], values[j]});
         }
     }
-    std::random_shuffle(deck.begin(), deck.end());
+    std::shuffle(deck.begin(), deck.end(), std::default_random_engine(std::time(0)));
 }
 
 int Blackjack::calculateScore(const std::vector<Card>& hand) {

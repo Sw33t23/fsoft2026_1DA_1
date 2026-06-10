@@ -1,4 +1,4 @@
-#include "BlackjackView.h"
+#include "../../Headers/View/BlackjackView.h"
 #include <iostream>
 
 void BlackjackView::displayMenuPrincipal() const {

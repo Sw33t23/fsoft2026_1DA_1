@@ -1,7 +1,7 @@
 #ifndef BLACKJACKVIEW_H
 #define BLACKJACKVIEW_H
 
-#include "../Model/blackjack.h"
+#include "../Model/Blackjack.h"
 #include <vector>
 #include <string>
 

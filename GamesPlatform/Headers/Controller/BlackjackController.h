@@ -1,9 +1,9 @@
 #ifndef BLACKJACKCONTROLLER_H
 #define BLACKJACKCONTROLLER_H
 
-#include "../Model/blackjack.h"
+#include "../Model/Blackjack.h"
 #include "../View/BlackjackView.h"
-#include "../Model/RankingModel.h"
+#include "../Model/Ranking.h"
 #include <string>
 
 class BlackjackController {
@@ -14,7 +14,7 @@ private:
 
 public:
     BlackjackController(std::string username, double startingBalance);
-    void playBlackjackRound(double& userBalance, RankingModel& ranking);
+    void playBlackjackRound(double& userBalance, Ranking& ranking);
 };
 
 #endif

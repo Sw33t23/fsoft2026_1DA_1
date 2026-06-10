@@ -1,10 +1,10 @@
-#include "BlackjackController.h"
+#include "../../Headers/Controller/BlackjackController.h"
 #include <iostream>
 
 BlackjackController::BlackjackController(std::string username, double startingBalance)
     : model(startingBalance), view(), playerUsername(username) {}
 
-void BlackjackController::playBlackjackRound(double& userBalance, RankingModel& ranking) {
+void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranking) {
     bool keepPlaying = true;
 
     while (keepPlaying && model.getBalance() > 0) {

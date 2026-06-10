@@ -2,8 +2,8 @@
 // Created by andre on 01/06/2026.
 //
 
-#ifndef FSOFT2026_1DA_1_JOGADOR_H
-#define FSOFT2026_1DA_1_JOGADOR_H
+#ifndef JOGADOR_H
+#define JOGADOR_H
 #include <string>
 
 using namespace std;
@@ -25,4 +25,4 @@ struct Jogador
 };
 
 
-#endif //FSOFT2026_1DA_1_JOGADOR_H
+#endif //JOGADOR_H
