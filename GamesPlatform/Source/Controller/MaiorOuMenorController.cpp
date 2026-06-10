@@ -2,8 +2,8 @@
 // Created by andre on 30/05/2026.
 //
 
-#include "../Controller/MaiorOuMenorController.h"
-#include "../Model/RankingModel.h"
+#include "../../Headers/Controller/MaiorOuMenorController.h"
+#include "../../Headers/Model/RankingModel.h"
 #include <exception>
 #include "MenorOuMaiorView.h"
 
