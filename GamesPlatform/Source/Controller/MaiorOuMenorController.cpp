@@ -5,7 +5,7 @@
 #include "../../Headers/Controller/MaiorOuMenorController.h"
 #include "../../Headers/Model/Ranking.h"
 #include <exception>
-#include "MenorOuMaiorView.h"
+#include "../../Headers/View/MaiorOuMenorView.h"
 
 using namespace std;
 
