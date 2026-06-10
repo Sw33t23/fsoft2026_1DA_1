@@ -2,8 +2,8 @@
 #define RANKING_CONTROLLER_H
  
 #include <string>
-#include "RankingModel.h"
-#include "RankingView.h"
+#include "../Model/RankingModel.h"
+#include "../View/RankingView.h"
  
 class RankingController {
 public:
