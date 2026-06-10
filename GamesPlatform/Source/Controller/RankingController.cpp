@@ -1,4 +1,4 @@
-#include "RankingController.h"
+#include "../../Headers/Controller/RankingController.h"
 
 void RankingController::registarBlackjack(const std::string& username, int saldo) {
     model.atualizarBlackjack(username, saldo);
