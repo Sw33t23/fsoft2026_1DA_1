@@ -1,4 +1,4 @@
-#include "../../Headers/Model/RankingModel.h"
+#include "../../Headers/Model/Ranking.h"
  
 const int TOP_MAX = 10;
  
