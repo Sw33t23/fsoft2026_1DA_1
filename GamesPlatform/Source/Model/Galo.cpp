@@ -13,7 +13,7 @@
 //  GaloException.cpp  –  Implementação dos utilitários
 // ============================================================
 
-#include "../../Headers/Exception/GaloException.h"  // <-- include do próprio header
+#include "../../Headers/Exception/Exception.h"  // <-- include do próprio header
 #include <iostream>
 #include <limits>
 
