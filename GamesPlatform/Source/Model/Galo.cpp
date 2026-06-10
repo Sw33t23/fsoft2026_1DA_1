@@ -7,8 +7,8 @@
 // ============================================================
 
 #include "Galo.h"
-#include "../view/GaloView.h"
-#include "../Controller/GaloController.h"
+#include "../../Headers/View/GaloView.h"
+#include "../../Headers/Controller/GaloController.h"
 // ============================================================
 //  GaloException.cpp  –  Implementação dos utilitários
 // ============================================================
