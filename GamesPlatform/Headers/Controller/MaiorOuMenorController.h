@@ -6,7 +6,7 @@
 #define FSOFT2026_1DA_1_CONTROLLER_H
 
 #include "../Model/MaiorOuMenor.h"
-#include "../Model/RankingModel.h"
+#include "../Model/Ranking.h"
 #include "../Model/Jogador.h"
 
 using namespace std;
