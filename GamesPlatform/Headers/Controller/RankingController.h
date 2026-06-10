@@ -2,7 +2,7 @@
 #define RANKING_CONTROLLER_H
  
 #include <string>
-#include "../Model/RankingModel.h"
+#include "../Model/Ranking.h"
 #include "../View/RankingView.h"
  
 class RankingController {
