@@ -1,4 +1,4 @@
-#include "RankingView.h"
+#include "../../Headers/View/RankingView.h"
 #include <iostream>
  
 void RankingView::exibirTop10(const std::vector<EntradaRanking>& lista,
