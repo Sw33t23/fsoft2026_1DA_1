@@ -17,6 +17,7 @@ public:
     void mostrarTentativas(int tentativas) const;
     void mostrarResultadoFinal(int tentativas, int recorde) const;
     void mostrarAviso(const string &mensagem) const;
+    void displayMensagem(const std::string& msg) const;
 };
 
 

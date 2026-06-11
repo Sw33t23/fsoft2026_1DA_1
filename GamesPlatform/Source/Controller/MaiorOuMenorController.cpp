@@ -18,42 +18,64 @@ MaiorOuMenorController::MaiorOuMenorController(Jogador *jogadorAutenticado, Rank
 void MaiorOuMenorController::playGame()
 {
     MaiorOuMenorView view;
+    bool keepPlaying = true;
 
-    game.iniciarJogoNovo();
-    view.mostrarInstrucoes();
-
-    bool acertou = false;
-
-    while (!acertou)
+    while (keepPlaying)
     {
-        int palpite = view.pedirPalpite();
-        try
+        game.iniciarJogoNovo();
+        view.mostrarInstrucoes();
+
+        bool acertou = false;
+
+        while (!acertou)
         {
-            int resultado = game.verificarPalpite(palpite);
-
-            if (resultado == 0)
+            int palpite = view.pedirPalpite();
+            try
             {
-                int recordeAntigo = loggedClient->leastTrys;
-                loggedClient->setLeastTrys(game.getTentativasAtuais());
+                int resultado = game.verificarPalpite(palpite);
 
-                ranking->atualizarMaiorMenor(loggedClient->username, game.getTentativasAtuais());
+                if (resultado == 0)
+                {
+                    int recordeAntigo = loggedClient->leastTrys;
+                    loggedClient->setLeastTrys(game.getTentativasAtuais());
 
-                view.mostrarResultadoFinal(game.getTentativasAtuais(), recordeAntigo);
-                acertou = true;
+                    ranking->atualizarMaiorMenor(loggedClient->username, game.getTentativasAtuais());
+
+                    view.mostrarResultadoFinal(game.getTentativasAtuais(), recordeAntigo);
+                    acertou = true;
+                }
+                else
+                {
+                    view.mostrarFeedbackPalpite(resultado);
+                    view.mostrarTentativas(game.getTentativasAtuais());
+                }
             }
-            else
+            catch (const InvalidDataException &e)
             {
-                view.mostrarFeedbackPalpite(resultado);
-                view.mostrarTentativas(game.getTentativasAtuais());
+                view.mostrarAviso(e.what());
+            }
+            catch (const exception &e)
+            {
+                view.mostrarAviso(e.what());
             }
         }
-        catch (const InvalidDataException &e) 
+
+        while (true)
         {
-            view.mostrarAviso(e.what()); 
-        }
-        catch (const exception &e)
-        {
-            view.mostrarAviso(e.what());
+            cout << ("\nQuer jogar mais uma ronda? (y/n): ");
+            char again;
+            cin >> again;
+
+            if (again == 'n' || again == 'N') {
+                keepPlaying = false;
+                break;
+            }
+            else if (again == 'y' || again == 'Y') {
+                break;
+            }
+            else {
+                view.mostrarAviso("Opcao invalida! Digite 'y' para sim ou 'n' para nao.");
+            }
         }
     }
 }
