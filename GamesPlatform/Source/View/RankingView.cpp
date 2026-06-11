@@ -30,8 +30,8 @@ int RankingView::pedirOpcaoMenu() {
     while(!(cin >> opcao)){
         std::cin.clear();
         std::cin.ignore(10000, '\n');
-        std::cout << "Erro! Introduza um palpite valido! \n";
-        std::cout << "Introduza o seu palpite: ";
+        std::cout << "Erro! Introduza uma opcao valida! \n";
+        std::cout << "Opcao: ";
     }
     return opcao;
 }
