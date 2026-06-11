@@ -4,6 +4,8 @@
 #include "../../Headers/Controller/MaiorOuMenorController.h"
 #include <iostream>
 
+#include "Controller/RankingController.h"
+
 MenuController::MenuController(Jogador* jogador) : jogadorAtivo(jogador) {}
 
 void MenuController::mostrarMenu() const {
@@ -16,6 +18,7 @@ void MenuController::mostrarMenu() const {
     std::cout << "1. Jogar Blackjack\n";
     std::cout << "2. Jogar Jogo do Galo\n";
     std::cout << "3. Jogar Maior ou Menor\n";
+    std::cout << "4. Ranking\n";
     std::cout << "0. Fazer Logout e Sair\n";
     std::cout << "------------------------------------\n";
     std::cout << "Escolha uma opcao: ";
@@ -49,6 +52,10 @@ void MenuController::executarOpcao(int opcao) {
             MaiorOuMenorController maiorMenor(jogadorAtivo, &ranking);
             maiorMenor.playGame();
             break;
+        }
+        case 4: {
+             // falta colocar o ranking
+
         }
         case 0:
             std::cout << "\nSessao terminada. Ate a proxima, " << jogadorAtivo->username << "!\n";
