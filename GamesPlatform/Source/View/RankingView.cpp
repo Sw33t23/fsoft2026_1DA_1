@@ -27,7 +27,12 @@ int RankingView::pedirOpcaoMenu() {
               << "3. Maior ou Menor\n"
               << "0. Voltar\n"
               << "Opcao: ";
-    std::cin >> opcao;
+    while(!(cin >> opcao)){
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
+        std::cout << "Erro! Introduza um palpite valido! \n";
+        std::cout << "Introduza o seu palpite: ";
+    }
     return opcao;
 }
  
