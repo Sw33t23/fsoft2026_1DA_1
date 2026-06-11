@@ -10,7 +10,7 @@ MenuController::MenuController(Jogador* jogador) : jogadorAtivo(jogador) {}
 
 void MenuController::mostrarMenu() const {
     std::cout << "\n====================================\n";
-    std::cout << "          CASINO HUB DE JOGOS       \n";
+    std::cout << "               HUB DE JOGOS           \n";
     std::cout << "====================================\n";
     std::cout << "Utilizador: " << jogadorAtivo->username << "\n";
     std::cout << "Saldo Atual: " << jogadorAtivo->saldo << " EUR\n";
