@@ -3,8 +3,8 @@
 #include <ctime>
 
 Galo::Galo(char simJogador) : simboloJogador(simJogador), vitorias(0) {
-    for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
+    for (int i = 1; i <= 3; i++)
+        for (int j = 1; j <= 3; j++)
             tabuleiro[i][j] = ' ';
 
     simboloIA = (simJogador == 'X') ? 'O' : 'X';
@@ -12,7 +12,7 @@ Galo::Galo(char simJogador) : simboloJogador(simJogador), vitorias(0) {
 }
 
 bool Galo::validarEJogar(int linha, int coluna) {
-    if (linha < 0 || linha > 2 || coluna < 0 || coluna > 2) return false;
+    if (linha < 1 || linha > 3 || coluna < 1 || coluna > 3) return false;
     if (tabuleiro[linha][coluna] != ' ') return false;
     
     tabuleiro[linha][coluna] = simboloJogador;
@@ -21,8 +21,8 @@ bool Galo::validarEJogar(int linha, int coluna) {
 
 void Galo::jogarComputador() {
     std::vector<std::pair<int,int>> livres;
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+    for (int i = 1; i <= 3; i++) {
+        for (int j = 1; j <= 3; j++) {
             if (tabuleiro[i][j] == ' ') livres.push_back({i, j});
         }
     }
@@ -33,18 +33,18 @@ void Galo::jogarComputador() {
 }
 
 bool Galo::verificarVencedor(char simbolo) const {
-    for (int i = 0; i < 3; i++) {
-        if (tabuleiro[i][0] == simbolo && tabuleiro[i][1] == simbolo && tabuleiro[i][2] == simbolo) return true;
-        if (tabuleiro[0][i] == simbolo && tabuleiro[1][i] == simbolo && tabuleiro[2][i] == simbolo) return true;
+    for (int i = 1; i <= 3; i++) {
+        if (tabuleiro[i][1] == simbolo && tabuleiro[i][2] == simbolo && tabuleiro[i][3] == simbolo) return true;
+        if (tabuleiro[1][i] == simbolo && tabuleiro[2][i] == simbolo && tabuleiro[3][i] == simbolo) return true;
     }
-    if (tabuleiro[0][0] == simbolo && tabuleiro[1][1] == simbolo && tabuleiro[2][2] == simbolo) return true;
-    if (tabuleiro[0][2] == simbolo && tabuleiro[1][1] == simbolo && tabuleiro[2][0] == simbolo) return true;
+    if (tabuleiro[1][1] == simbolo && tabuleiro[2][2] == simbolo && tabuleiro[3][3] == simbolo) return true;
+    if (tabuleiro[1][3] == simbolo && tabuleiro[2][2] == simbolo && tabuleiro[3][1] == simbolo) return true;
     return false;
 }
 
 bool Galo::tabuleiroCheio() const {
-    for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
+    for (int i = 1; i <= 3; i++)
+        for (int j = 1; j <= 3; j++)
             if (tabuleiro[i][j] == ' ') return false;
     return true;
 }
@@ -62,6 +62,6 @@ bool Galo::jogoAtivo() const {
 
 void Galo::incrementarVitorias() { vitorias++; }
 int Galo::getVitorias() const { return vitorias; }
-const char (*Galo::getTabuleiro() const)[3] { return tabuleiro; }
+const char (*Galo::getTabuleiro() const)[4] { return tabuleiro; }
 char Galo::getSimboloJogador() const { return simboloJogador; }
 char Galo::getSimboloIA() const { return simboloIA; }

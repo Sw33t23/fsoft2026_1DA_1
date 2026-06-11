@@ -5,7 +5,7 @@
 
 class Galo {
 private:
-    char tabuleiro[3][3];
+    char tabuleiro[4][4];
     char simboloJogador;
     char simboloIA;
     int vitorias;
@@ -23,7 +23,7 @@ public:
     
     void incrementarVitorias();
     int getVitorias() const;
-    const char (*getTabuleiro() const)[3];
+    const char (*getTabuleiro() const)[4];
     char getSimboloJogador() const;
     char getSimboloIA() const;
 };
