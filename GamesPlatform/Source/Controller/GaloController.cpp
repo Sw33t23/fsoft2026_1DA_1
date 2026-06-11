@@ -1,15 +1,15 @@
 #include "../../Headers/Controller/GaloController.h"
 
-JogoGaloController::JogoGaloController() : model(nullptr) {}
+GaloController::GaloController() : model(nullptr) {}
 
-JogoGaloController::~JogoGaloController() {
+GaloController::~GaloController() {
     delete model;
 }
 
-void JogoGaloController::iniciarJogo() {
+void GaloController::iniciarJogo() {
     // 1. Inicializa o Model através da escolha feita na View
     char escolha = view.pedirSimboloJogador();
-    model = new JogoGalo(escolha);
+    model = new Galo(escolha);
 
     view.mostrarMensagem("\n--- O Jogo Comecou! ---");
     view.mostrarTabuleiro(model->getTabuleiro());
