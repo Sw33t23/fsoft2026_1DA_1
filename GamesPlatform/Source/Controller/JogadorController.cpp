@@ -1,5 +1,6 @@
 #include "../../Headers/Controller/JogadorController.h"
 #include "../../Headers/Exception/Exception.h"
+#include "../../Headers/Model/Jogador.h"
 #include <iostream>
 
 JogadorController::JogadorController(JogadorService& service) : service(service) {}
@@ -11,33 +12,49 @@ Jogador* JogadorController::correrMenuAutenticacao() {
         int opcao = view.pedirOpcaoMenuPrincipal();
 
         switch (opcao) {
-            case 1:
-                fluxoRegisto();
+            case 1: {
+                Jogador* jogadorLogado = fluxoRegisto();
+                if (jogadorLogado != nullptr) {
+                    jogadorAtivo = jogadorLogado;
+                }
                 break;
+            }
             case 2:
                 jogadorAtivo = fluxoLogin();
                 break;
+
             case 3:
                 view.mostrarSucesso("A encerrar o sistema...");
                 return nullptr;
+
             default:
                 view.mostrarErro("Opcao invalida. Tente novamente.");
+                break;
         }
     }
 
     return jogadorAtivo;
 }
 
-void JogadorController::fluxoRegisto() {
+Jogador* JogadorController::fluxoRegisto() {
     try {
         RegistoDTO dados = view.pedirDadosRegisto();
         service.registarJogador(dados);
-        view.mostrarSucesso("Conta criada com sucesso! Ja podes fazer login.");
+        view.mostrarSucesso("Conta criada com sucesso!");
+
+        LoginDTO loginDados;
+        loginDados.username = dados.username;
+        loginDados.password = dados.password;
+
+        Jogador* jogador = service.autenticar(loginDados);
+        view.mostrarPerfil(jogador->username, jogador->saldo);
+        return jogador;
     } catch (const InvalidDataException& e) {
         view.mostrarErro(e.what());
     } catch (const DuplicatePlayerException& e) {
         view.mostrarErro(e.what());
     }
+    return nullptr;
 }
 
 Jogador* JogadorController::fluxoLogin() {

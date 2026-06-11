@@ -16,7 +16,7 @@ public:
     Jogador* correrMenuAutenticacao();
 
 private:
-    void fluxoRegisto();
+    Jogador* fluxoRegisto();
     Jogador* fluxoLogin();
 };
 #endif
