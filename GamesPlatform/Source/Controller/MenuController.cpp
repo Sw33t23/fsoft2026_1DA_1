@@ -9,7 +9,7 @@ MenuController::MenuController(Jogador* jogador) : jogadorAtivo(jogador) {}
 
 void MenuController::mostrarMenu() const {
     std::cout << "\n====================================\n";
-    std::cout << "              HUB DE JOGOS           \n";
+    std::cout << "             HUB DE JOGOS           \n";
     std::cout << "====================================\n";
     std::cout << "Utilizador: " << jogadorAtivo->username << "\n";
     std::cout << "------------------------------------\n";
@@ -27,6 +27,15 @@ void MenuController::iniciarMenu() {
     while (opcao != 0) {
         mostrarMenu();
         std::cin >> opcao;
+
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(10000,'\n');
+
+            std::cout << "\nOpcao invalida! Tente novamente.\n";
+            opcao = -1;
+            continue;
+        }
         executarOpcao(opcao);
     }
 }
