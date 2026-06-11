@@ -8,7 +8,7 @@ class GaloView {
 public:
     char pedirSimboloJogador();
     std::pair<int, int> pedirJogada();
-    void mostrarTabuleiro(const char tabuleiro[3][3]);
+    void mostrarTabuleiro(const char tabuleiro[4][4]);
     void mostrarMensagem(const std::string& mensagem);
     void mostrarResultado(char resultado, int vitorias);
 };

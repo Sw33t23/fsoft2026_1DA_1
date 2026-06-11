@@ -24,7 +24,7 @@ std::pair<int, int> GaloView::pedirJogada() {
     return {linha, coluna};
 }
 
-void GaloView::mostrarTabuleiro(const char tabuleiro[3][3]) {
+void GaloView::mostrarTabuleiro(const char tabuleiro[4][4]) {
     std::cout << "\n-------------\n";
     for (int i = 1; i <= 3; i++) {
         std::cout << "| ";
