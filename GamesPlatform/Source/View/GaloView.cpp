@@ -1,5 +1,7 @@
 #include "../../Headers/View/GaloView.h"
 #include <iostream>
+#include <sstream>
+#include <limits>
 
 char GaloView::pedirSimboloJogador() {
     char simbolo = ' ';
@@ -12,15 +14,31 @@ char GaloView::pedirSimboloJogador() {
 }
 
 std::pair<int, int> GaloView::pedirJogada() {
-    int linha, coluna;
-    std::cout << "Introduza a linha (1-3) e coluna (1-3) separadas por espaco: ";
-    while (!(std::cin >> linha >> coluna) || linha < 1 || coluna < 1 || linha > 3 || coluna > 3)
-    {
-        std::cin.clear();
-        std::cin.ignore(1000, '\n');
-        std::cout << "\nERRO! Introduza uma jogada valida (entre 1 e 3)! \n";
-        std::cout << "Introduza a linha (1-3) e coluna (1-3) separadas por espaco: ";
+    std::string entrada;
+    int linha = 0, coluna = 0;
+
+    static bool primeiraJogada = true;
+    if (primeiraJogada) {
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        primeiraJogada = false;
     }
+
+    while (true) {
+        std::cout << "Introduza a linha (1-3) e coluna (1-3) separadas por espaco: ";
+        std::getline(std::cin, entrada);
+
+        std::stringstream ss(entrada);
+        char extra;
+
+        if ((ss >> linha >> coluna) && !(ss >> extra)) {
+            if (linha >= 1 && linha <= 3 && coluna >= 1 && coluna <= 3) {
+                break;
+            }
+        }
+
+        std::cout << "\nERRO! Introduza uma jogada valida (entre 1 e 3 e separados por espaco)!\n\n";
+    }
+
     return {linha, coluna};
 }
 
