@@ -2,12 +2,12 @@
 #define MENU_CONTROLLER_H
 
 #include "../Model/Jogador.h"
-#include "../Model/Ranking.h"
+#include "../Controller/RankingController.h"
 
 class MenuController {
 private:
     Jogador* jogadorAtivo;
-    Ranking ranking;
+    RankingController ranking;
 
     void mostrarMenu() const;
     void executarOpcao(int opcao);

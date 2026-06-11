@@ -1,6 +1,7 @@
 #include "../../Headers/Controller/GaloController.h"
 
-GaloController::GaloController() : model(nullptr) {}
+GaloController::GaloController(Jogador* jogador, Ranking* r)
+    : model(nullptr), jogadorAtivo(jogador), ranking(r) {}
 
 GaloController::~GaloController() {
     delete model;
@@ -41,6 +42,7 @@ void GaloController::iniciarJogo() {
     char res = model->verificarResultado();
     if (res == 'J') {
         model->incrementarVitorias();
+        ranking->atualizarGalo(jogadorAtivo->username, model->getVitorias());
     }
     
     view.mostrarResultado(res, model->getVitorias());

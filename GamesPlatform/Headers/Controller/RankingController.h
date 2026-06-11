@@ -12,6 +12,8 @@ public:
     void registarMaiorMenor (const std::string& username, int tentativas);
  
     void consultarRanking();
+
+    Ranking& getModel() { return model; }
  
 private:
     Ranking model;

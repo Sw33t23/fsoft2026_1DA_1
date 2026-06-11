@@ -2,18 +2,16 @@
 #include "../../Headers/Controller/BlackjackController.h"
 #include "../../Headers/Controller/GaloController.h"
 #include "../../Headers/Controller/MaiorOuMenorController.h"
+#include "../../Headers/Controller/RankingController.h"
 #include <iostream>
-
-#include "Controller/RankingController.h"
 
 MenuController::MenuController(Jogador* jogador) : jogadorAtivo(jogador) {}
 
 void MenuController::mostrarMenu() const {
     std::cout << "\n====================================\n";
-    std::cout << "               HUB DE JOGOS           \n";
+    std::cout << "              HUB DE JOGOS           \n";
     std::cout << "====================================\n";
     std::cout << "Utilizador: " << jogadorAtivo->username << "\n";
-    std::cout << "Saldo Atual: " << jogadorAtivo->saldo << " EUR\n";
     std::cout << "------------------------------------\n";
     std::cout << "1. Jogar Blackjack\n";
     std::cout << "2. Jogar Jogo do Galo\n";
@@ -36,26 +34,23 @@ void MenuController::iniciarMenu() {
 void MenuController::executarOpcao(int opcao) {
     switch (opcao) {
         case 1: {
-            std::cout << "\n[A abrir o Blackjack...]\n";
             BlackjackController blackjack(jogadorAtivo->username, jogadorAtivo->saldo);
-            blackjack.playBlackjackRound(jogadorAtivo->saldo, ranking);
+            blackjack.playBlackjackRound(jogadorAtivo->saldo, ranking.getModel());
             break;
         }
         case 2: {
-            std::cout << "\n[A abrir o Jogo do Galo...]\n";
-            GaloController galo;
+            GaloController galo(jogadorAtivo, &ranking.getModel());
             galo.iniciarJogo();
             break;
         }
         case 3: {
-            std::cout << "\n[A abrir o Maior ou Menor...]\n";
-            MaiorOuMenorController maiorMenor(jogadorAtivo, &ranking);
+            MaiorOuMenorController maiorMenor(jogadorAtivo, &ranking.getModel());
             maiorMenor.playGame();
             break;
         }
         case 4: {
-             // falta colocar o ranking
-
+            ranking.consultarRanking();
+            break;
         }
         case 0:
             std::cout << "\nSessao terminada. Ate a proxima, " << jogadorAtivo->username << "!\n";
