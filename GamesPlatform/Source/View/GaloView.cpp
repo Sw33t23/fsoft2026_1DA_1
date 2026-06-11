@@ -14,15 +14,21 @@ char GaloView::pedirSimboloJogador() {
 std::pair<int, int> GaloView::pedirJogada() {
     int linha, coluna;
     std::cout << "Introduza a linha (1-3) e coluna (1-3) separadas por espaco: ";
-    std::cin >> linha >> coluna;
-    return {linha - 1, coluna - 1}; // Converte para índice 0-2
+    while (!(std::cin >> linha >> coluna) || linha < 1 || coluna < 1 || linha > 3 || coluna > 3)
+    {
+        std::cin.clear();
+        std::cin.ignore(1000, '\n');
+        std::cout << "\nERRO! Introduza uma jogada valida (entre 1 e 3)! \n";
+        std::cout << "Introduza a linha (1-3) e coluna (1-3) separadas por espaco: ";
+    }
+    return {linha, coluna};
 }
 
 void GaloView::mostrarTabuleiro(const char tabuleiro[3][3]) {
     std::cout << "\n-------------\n";
-    for (int i = 0; i < 3; i++) {
+    for (int i = 1; i <= 3; i++) {
         std::cout << "| ";
-        for (int j = 0; j < 3; j++) {
+        for (int j = 1; j <= 3; j++) {
             std::cout << tabuleiro[i][j] << " | ";
         }
         std::cout << "\n-------------\n";
