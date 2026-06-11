@@ -10,15 +10,15 @@ int main() {
     JogadorService jogadorService(jogadorContainer);
     JogadorController jogadorController(jogadorService);
 
-    Jogador* jogadorAtivo = jogadorController.correrMenuAutenticacao();
+    while (true) {
+        Jogador* jogadorAtivo = jogadorController.correrMenuAutenticacao();
 
-    if (jogadorAtivo == nullptr) {
-        std::cout << "A fechar a aplicacao...\n";
-        return 0;
+        if (jogadorAtivo == nullptr) {
+            std::cout << "A fechar a aplicacao...\n";
+            break;
+        }
+        MenuController menu(jogadorAtivo);
+        menu.iniciarMenu();
     }
-
-    MenuController menu(jogadorAtivo);
-    menu.iniciarMenu();
-
     return 0;
 }

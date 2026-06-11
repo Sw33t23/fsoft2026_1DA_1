@@ -17,7 +17,7 @@ void MenuController::mostrarMenu() const {
     std::cout << "2. Jogar Jogo do Galo\n";
     std::cout << "3. Jogar Maior ou Menor\n";
     std::cout << "4. Ranking\n";
-    std::cout << "0. Fazer Logout e Sair\n";
+    std::cout << "0. Fazer Logout\n";
     std::cout << "------------------------------------\n";
     std::cout << "Escolha uma opcao: ";
 }
