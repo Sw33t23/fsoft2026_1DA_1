@@ -1,5 +1,6 @@
 #include "../../Headers/Controller/BlackjackController.h"
 #include <iostream>
+#include <climits> // Necessário para limpar o buffer do cin
 
 BlackjackController::BlackjackController(std::string username, double startingBalance)
     : model(startingBalance), view(), playerUsername(username) {}
@@ -8,17 +9,31 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
     bool keepPlaying = true;
 
     while (keepPlaying && model.getBalance() > 0) {
+        // Imprime a interface estilizada de regras antes de pedir a aposta
+        view.displayHands({}, 0, {}, 0, false);
+        view.displaySaldo(model.getBalance());
+
         int bet = 0;
         while (true) {
-            view.displaySaldo(model.getBalance());
             view.displayPedirAposta();
             std::cin >> bet;
 
+            // PROTEÇÃO CONTRA LETRAS: Se o utilizador meter uma letra, o cin falha
+            if (std::cin.fail()) {
+                std::cin.clear(); // Limpa o estado de erro do cin
+                std::cin.ignore(INT_MAX, '\n'); // Descarta a entrada inválida do buffer
+                view.displayMensagem("Erro: Por favor, introduza apenas numeros.");
+                continue;
+            }
+
             if (bet == 10 || bet == 20 || bet == 50 || bet == 100) {
-                if (bet <= model.getBalance()) break;
-                else view.displayMensagem("Erro: Nao tem saldo suficiente para esta aposta.");
+                if (bet <= model.getBalance()) {
+                    break;
+                } else {
+                    view.displayMensagem("Erro: Nao tem saldo suficiente para esta aposta.");
+                }
             } else {
-                view.displayMensagem("Erro: Quantia invalida.");
+                view.displayMensagem("Erro: Selecione uma quantia valida (10, 20, 50, 100).");
             }
         }
 
@@ -43,7 +58,7 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
                 break;
             }
             else {
-                view.displayMensagem("Opcao invalida! Escolha 'h' para Hit ou 's' para Stand.");
+                view.displayMensagem("Opcao invalida! Escolha 'h' para pedir ou 's' para parar.");
             }
         }
 
@@ -57,28 +72,35 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
         }
 
         int dScore = model.calculateScore(model.getDealerHand());
+
+        // Revelação final das cartas e aplicação do resultado
         view.displayHands(model.getPlayerHand(), pScore, model.getDealerHand(), dScore, false);
         view.displayResultado(pScore, dScore, playerBusted, bet);
 
+        // Atualização matemática do saldo no Modelo
         if (playerBusted) model.setBalance(model.getBalance() - bet);
         else if (dScore > 21 || pScore > dScore) model.setBalance(model.getBalance() + bet);
         else if (pScore < dScore) model.setBalance(model.getBalance() - bet);
 
+        // Atualiza a RAM do main
         userBalance = model.getBalance();
+
+        // MOSTRAR SALDO NO FIM DA RODADA
+        view.displaySaldo(model.getBalance());
 
         if (model.getBalance() <= 0) {
             view.displayMensagem("Banca rota! O seu saldo chegou a 0.");
             break;
         }
 
-
+        // CONTROLADOR DE CONTINUIDADE
         while (true) {
-            view.displayMensagem("\nQuer jogar mais uma ronda? (y/n): ");
+            view.displayMensagem("Quer jogar mais uma ronda? (y/n): ");
             char again;
             std::cin >> again;
 
             if (again == 'n' || again == 'N') {
-                keepPlaying = false; //
+                keepPlaying = false;
                 break;
             }
             else if (again == 'y' || again == 'Y') {
@@ -90,11 +112,9 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
         }
     }
 
-    // Gravação no ranking antes de sair
+    // Gravação estável no ranking antes de sair
     view.displayMensagem("\nA atualizar o teu registo no Ranking Global do Blackjack...");
     ranking.atualizarBlackjack(playerUsername, static_cast<int>(model.getBalance()));
     view.displayMensagem("Ranking atualizado com sucesso!");
-
-
-    view.displayMensagem("\nA sair do Blackjack... A redirecionar para o Menu Principal da Plataforma.");
+    view.displayMensagem("\nA sair do Blackjack... A redirecionar para o Menu Principal.");
 }
