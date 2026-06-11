@@ -71,14 +71,14 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
             break;
         }
 
-        // LOGICA DE CONTINUAR/PARAR
+
         while (true) {
             view.displayMensagem("\nQuer jogar mais uma ronda? (y/n): ");
             char again;
             std::cin >> again;
 
             if (again == 'n' || again == 'N') {
-                keepPlaying = false; // Quebra o ciclo principal do Blackjack
+                keepPlaying = false; //
                 break;
             }
             else if (again == 'y' || again == 'Y') {
@@ -95,6 +95,6 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
     ranking.atualizarBlackjack(playerUsername, static_cast<int>(model.getBalance()));
     view.displayMensagem("Ranking atualizado com sucesso!");
 
-    // Mensagem de transição para o utilizador saber que está a voltar ao Hub
+
     view.displayMensagem("\nA sair do Blackjack... A redirecionar para o Menu Principal da Plataforma.");
 }
