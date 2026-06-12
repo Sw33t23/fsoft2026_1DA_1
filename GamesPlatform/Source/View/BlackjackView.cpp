@@ -70,17 +70,17 @@ void BlackjackView::displaySaldo(double balance) const {
 }
 
 bool BlackjackView::pedirDesejaJogarNovamente() const {
-    std::string entrada;
-    while (true) {
-        std::cout << "Quer jogar novamente? (y/n): ";
-        std::cin >> entrada;
+    std::cout << "\nDeseja jogar novamente?\n";
+    std::cout << " 1 - Sim\n";
+    std::cout << " 0 - Nao\n\n";
+    std::cout << "Opcao: ";
 
-        if (entrada == "y" || entrada == "Y" || entrada == "sim" || entrada == "Sim") {
-            return true;
-        }
-        if (entrada == "n" || entrada == "N" || entrada == "nao" || entrada == "Nao") {
-            return false;
-        }
-        std::cout << "\nOpcao invalida! Digite 'y' para sim ou 'n' para nao.\n" << std::endl;
+    int opcao;
+    while (!(std::cin >> opcao) || (opcao != 0 && opcao != 1)) {
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
+        std::cout << "Opcao invalida (0 ou 1): ";
     }
+    std::cin.ignore(10000, '\n');
+    return opcao == 1;
 }
