@@ -7,13 +7,13 @@
 class MenuController {
 private:
     Jogador* jogadorAtivo;
-    RankingController ranking;
+    RankingController& ranking;
 
     void mostrarMenu() const;
     void executarOpcao(int opcao);
 
 public:
-    MenuController(Jogador* jogador);
+    MenuController(Jogador* jogador, RankingController& ranking);
     void iniciarMenu();
 };
 

@@ -5,7 +5,8 @@
 #include "../../Headers/Controller/RankingController.h"
 #include <iostream>
 
-MenuController::MenuController(Jogador* jogador) : jogadorAtivo(jogador) {}
+MenuController::MenuController(Jogador* jogador, RankingController& r)
+    : jogadorAtivo(jogador), ranking(r) {}
 
 void MenuController::mostrarMenu() const {
     std::cout << "\n====================================\n";

@@ -65,5 +65,21 @@ void GaloView::mostrarResultado(char resultado, int vitorias) {
     } else if (resultado == 'E') {
         std::cout << "\n... Foi um empate! ...\n";
     }
-    std::cout << "Total de vitorias do jogador: " << vitorias << "\n\n";
+    std::cout << "Streak atual de vitorias do jogador: " << vitorias << "\n\n";
+}
+
+bool GaloView::perguntarJogarNovamente() const {
+    std::cout << "\nDeseja jogar novamente?\n";
+    std::cout << " 1 - Sim\n";
+    std::cout << " 0 - Nao\n\n";
+    std::cout << "Opcao: ";
+
+    int opcao;
+    while (!(std::cin >> opcao) || (opcao != 0 && opcao != 1)) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Opcao invalida (0 ou 1): ";
+    }
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return opcao == 1;
 }

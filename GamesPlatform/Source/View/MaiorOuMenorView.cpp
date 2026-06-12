@@ -64,7 +64,6 @@ void MaiorOuMenorView::mostrarResultadoFinal(int tentativas, int recorde) const
     }
 }
 
-
 void MaiorOuMenorView::mostrarAviso(const string& mensagem) const
 {
     cout << "AVISO: " << mensagem << endl;
