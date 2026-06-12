@@ -17,6 +17,8 @@ public:
     void displayResultado(int pScore, int dScore, bool playerBusted, double bet) const;
     void displayMensagem(const std::string& msg) const;
     void displaySaldo(double balance) const;
+
+    bool pedirDesejaJogarNovamente() const;
 };
 
 #endif

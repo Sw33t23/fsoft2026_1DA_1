@@ -18,10 +18,10 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
             view.displayPedirAposta();
             std::cin >> bet;
 
-            // PROTEÇÃO CONTRA LETRAS: Se o utilizador meter uma letra, o cin falha
+            // PROTEÇÃO CONTRA LETRAS
             if (std::cin.fail()) {
-                std::cin.clear(); // Limpa o estado de erro do cin
-                std::cin.ignore(INT_MAX, '\n'); // Descarta a entrada inválida do buffer
+                std::cin.clear();
+                std::cin.ignore(INT_MAX, '\n');
                 view.displayMensagem("Erro: Por favor, introduza apenas numeros.");
                 continue;
             }
@@ -77,7 +77,7 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
         view.displayHands(model.getPlayerHand(), pScore, model.getDealerHand(), dScore, false);
         view.displayResultado(pScore, dScore, playerBusted, bet);
 
-        // Atualização matemática do saldo no Modelo
+        // Quantificação matemática do saldo
         if (playerBusted) model.setBalance(model.getBalance() - bet);
         else if (dScore > 21 || pScore > dScore) model.setBalance(model.getBalance() + bet);
         else if (pScore < dScore) model.setBalance(model.getBalance() - bet);
@@ -93,28 +93,15 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
             break;
         }
 
-        // CONTROLADOR DE CONTINUIDADE
-        while (true) {
-            view.displayMensagem("Quer jogar mais uma ronda? (y/n): ");
-            char again;
-            std::cin >> again;
-
-            if (again == 'n' || again == 'N') {
-                keepPlaying = false;
-                break;
-            }
-            else if (again == 'y' || again == 'Y') {
-                break;
-            }
-            else {
-                view.displayMensagem("Opcao invalida! Digite 'y' para sim ou 'n' para nao.");
-            }
+        // CONTROLADOR DE CONTINUIDADE (Chama a nova validação da View)
+        if (!view.pedirDesejaJogarNovamente()) {
+            keepPlaying = false;
         }
     }
 
-    // Gravação estável no ranking antes de sair
+    // Gravação estável no ranking antes de sair do loop e fechar o jogo
     view.displayMensagem("\nA atualizar o teu registo no Ranking Global do Blackjack...");
     ranking.atualizarBlackjack(playerUsername, static_cast<int>(model.getBalance()));
-    view.displayMensagem("Ranking atualizado com sucesso!");
+    view.displayMensagem("Ranking updated successfully!");
     view.displayMensagem("\nA sair do Blackjack... A redirecionar para o Menu Principal.");
 }
