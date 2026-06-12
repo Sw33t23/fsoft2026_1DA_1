@@ -8,42 +8,45 @@ GaloController::~GaloController() {
 }
 
 void GaloController::iniciarJogo() {
-    // 1. Inicializa o Model através da escolha feita na View
-    char escolha = view.pedirSimboloJogador();
-    model = new Galo(escolha);
+    bool jogarNovamente = true;
 
-    view.mostrarMensagem("\n--- O Jogo Comecou! ---");
-    view.mostrarTabuleiro(model->getTabuleiro());
+    while (jogarNovamente) {
+        char escolha = view.pedirSimboloJogador();
+        delete model;
+        model = new Galo(escolha);
 
-    // 2. Loop principal do Jogo
-    while (model->jogoAtivo()) {
-        // Turno do Jogador
-        bool jogadaValida = false;
-        while (!jogadaValida) {
-            std::pair<int, int> jogada = view.pedirJogada();
-            jogadaValida = model->validarEJogar(jogada.first, jogada.second);
-            if (!jogadaValida) {
-                view.mostrarMensagem("Jogada invalida! Tente novamente.");
+        view.mostrarMensagem("\n--- O Jogo Comecou! ---");
+        view.mostrarTabuleiro(model->getTabuleiro());
+
+        while (model->jogoAtivo()) {
+            bool jogadaValida = false;
+            while (!jogadaValida) {
+                std::pair<int, int> jogada = view.pedirJogada();
+                jogadaValida = model->validarEJogar(jogada.first, jogada.second);
+                if (!jogadaValida)
+                    view.mostrarMensagem("Jogada invalida! Tente novamente.");
             }
+
+            view.mostrarTabuleiro(model->getTabuleiro());
+
+            if (!model->jogoAtivo()) break;
+
+            view.mostrarMensagem("Computador a pensar...");
+            model->jogarComputador();
+            view.mostrarTabuleiro(model->getTabuleiro());
         }
 
-        view.mostrarTabuleiro(model->getTabuleiro());
+        char res = model->verificarResultado();
 
-        // Verifica se o jogador ganhou ou empatou após a sua jogada
-        if (!model->jogoAtivo()) break;
+        if (res == 'J') {
+            jogadorAtivo->streakGalo++;
+            ranking->atualizarGalo(jogadorAtivo->username, jogadorAtivo->streakGalo);
+        } else if (res == 'I') {
+            jogadorAtivo->streakGalo = 0;
+        }
 
-        // Turno da IA
-        view.mostrarMensagem("Computador a pensar...");
-        model->jogarComputador();
-        view.mostrarTabuleiro(model->getTabuleiro());
+        view.mostrarResultado(res, jogadorAtivo->streakGalo);
+
+        jogarNovamente = view.perguntarJogarNovamente();
     }
-
-    // 3. Fim do Jogo e Atualização de Pontuação
-    char res = model->verificarResultado();
-    if (res == 'J') {
-        model->incrementarVitorias();
-        ranking->atualizarGalo(jogadorAtivo->username, model->getVitorias());
-    }
-    
-    view.mostrarResultado(res, model->getVitorias());
 }

@@ -11,6 +11,7 @@ public:
     void mostrarTabuleiro(const char tabuleiro[4][4]);
     void mostrarMensagem(const std::string& mensagem);
     void mostrarResultado(char resultado, int vitorias);
+    bool perguntarJogarNovamente() const;
 };
 
 #endif
