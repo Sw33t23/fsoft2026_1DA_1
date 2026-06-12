@@ -33,7 +33,7 @@ void GaloController::iniciarJogo() {
 
             view.mostrarMensagem("Computador a pensar...");
             model->jogarComputador();
-            view.mostrarTabuleiro(model->getTabuleiro());
+            view.mostrarTabuleiro(model->getTabuleiro());//
         }
 
         char res = model->verificarResultado();
