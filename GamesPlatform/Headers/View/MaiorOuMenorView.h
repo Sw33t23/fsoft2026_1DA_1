@@ -1,7 +1,3 @@
-//
-// Created by andre on 01/06/2026.
-//
-
 #ifndef FSOFT2026_1DA_1_MAIOROUMENORVIEW_H
 #define FSOFT2026_1DA_1_MAIOROUMENORVIEW_H
 
@@ -18,6 +14,7 @@ public:
     void mostrarResultadoFinal(int tentativas, int recorde) const;
     void mostrarAviso(const string &mensagem) const;
     void displayMensagem(const std::string& msg) const;
+    bool perguntarJogarNovamente() const;
 };
 
 
