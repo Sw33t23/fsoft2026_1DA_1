@@ -1,7 +1,3 @@
-//
-// Created by andre on 30/05/2026.
-//
-
 #include "../../Headers/Controller/MaiorOuMenorController.h"
 #include "../../Headers/Model/Ranking.h"
 #include <exception>
@@ -18,9 +14,9 @@ MaiorOuMenorController::MaiorOuMenorController(Jogador *jogadorAutenticado, Rank
 void MaiorOuMenorController::playGame()
 {
     MaiorOuMenorView view;
-    bool keepPlaying = true;
+    bool jogarNovamente = true;
 
-    while (keepPlaying)
+    while (jogarNovamente)
     {
         game.iniciarJogoNovo();
         view.mostrarInstrucoes();
@@ -60,22 +56,6 @@ void MaiorOuMenorController::playGame()
             }
         }
 
-        while (true)
-        {
-            cout << ("\nQuer jogar mais uma ronda? (y/n): ");
-            char again;
-            cin >> again;
-
-            if (again == 'n' || again == 'N') {
-                keepPlaying = false;
-                break;
-            }
-            else if (again == 'y' || again == 'Y') {
-                break;
-            }
-            else {
-                view.mostrarAviso("Opcao invalida! Digite 'y' para sim ou 'n' para nao.");
-            }
-        }
+        jogarNovamente = view.perguntarJogarNovamente();
     }
 }

@@ -68,3 +68,19 @@ void MaiorOuMenorView::mostrarAviso(const string& mensagem) const
 {
     cout << "AVISO: " << mensagem << endl;
 }
+
+bool MaiorOuMenorView::perguntarJogarNovamente() const {
+    std::cout << "\nDeseja jogar novamente?\n";
+    std::cout << " 1 - Sim\n";
+    std::cout << " 0 - Nao\n\n";
+    std::cout << "Opcao: ";
+
+    int opcao;
+    while (!(std::cin >> opcao) || (opcao != 0 && opcao != 1)) {
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
+        std::cout << "Opcao invalida (0 ou 1): ";
+    }
+    std::cin.ignore(10000, '\n');
+    return opcao == 1;
+}
