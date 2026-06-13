@@ -14,9 +14,9 @@ void BlackjackView::displayHub(const std::string& username, double balance) cons
     std::cout << "\n1. Jogar Maior ou Menor\n2. Jogar Blackjack\n3. Jogar Jogo do Galo\n4. Terminar Sessao (Logout)\nEscolha uma opcao: ";
 }
 
-// Interface Inicial do Blackjack combinando com o padrão do Maior ou Menor
+// Interface Inicial do Blackjack
 void BlackjackView::displayHands(const std::vector<Card>& playerHand, int pScore, const std::vector<Card>& dealerHand, int dScore, bool hideDealer) const {
-    // Só mostra o cabeçalho estético quando o jogo inicia (mãos vazias)
+
     if (playerHand.empty() && dealerHand.empty()) {
         std::cout << "\n=========================================\n";
         std::cout << "                BLACKJACK                \n";
@@ -42,10 +42,10 @@ void BlackjackView::displayHands(const std::vector<Card>& playerHand, int pScore
 
 void BlackjackView::displayPedirAposta() const { std::cout << "Introduza o valor da sua aposta (10, 20, 50, 100): "; }
 
-// Frase de opções melhorada e mais limpa
+
 void BlackjackView::displayOpcoesTurno() const { std::cout << "Deseja pedir carta (h) ou parar (s)? "; }
 
-// Mensagem de vitória corrigida para mostrar o retorno total (dobro do apostado)
+
 void BlackjackView::displayResultado(int pScore, int dScore, bool playerBusted, double bet) const {
     if (playerBusted) {
         std::cout << "\n--- Bust! Ultrapassou os 21 pontos. Perdeu $" << bet << " ---\n";

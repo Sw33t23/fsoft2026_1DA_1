@@ -1,6 +1,6 @@
 #include "../../Headers/Controller/BlackjackController.h"
 #include <iostream>
-#include <climits> // Necessário para limpar o buffer do cin
+#include <climits>
 
 BlackjackController::BlackjackController(std::string username, double startingBalance)
     : model(startingBalance), view(), playerUsername(username) {}
@@ -9,7 +9,7 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
     bool keepPlaying = true;
 
     while (keepPlaying && model.getBalance() > 0) {
-        // Imprime a interface estilizada de regras antes de pedir a aposta
+
         view.displayHands({}, 0, {}, 0, false);
         view.displaySaldo(model.getBalance());
 
@@ -77,7 +77,7 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
         view.displayHands(model.getPlayerHand(), pScore, model.getDealerHand(), dScore, false);
         view.displayResultado(pScore, dScore, playerBusted, bet);
 
-        // Quantificação matemática do saldo
+        // calcular saldo
         if (playerBusted) model.setBalance(model.getBalance() - bet);
         else if (dScore > 21 || pScore > dScore) model.setBalance(model.getBalance() + bet);
         else if (pScore < dScore) model.setBalance(model.getBalance() - bet);
@@ -93,7 +93,7 @@ void BlackjackController::playBlackjackRound(double& userBalance, Ranking& ranki
             break;
         }
 
-        // CONTROLADOR DE CONTINUIDADE (Chama a nova validação da View)
+        // CONTROLADOR DE CONTINUIDADE (Chama a validação da View)
         if (!view.pedirDesejaJogarNovamente()) {
             keepPlaying = false;
         }
