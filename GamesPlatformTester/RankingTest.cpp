@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Model/Ranking.h"
+#include "../GamesPlatform/Headers/Model/Ranking.h"
 
 class RankingTest : public ::testing::Test {
 protected:

@@ -1,16 +1,3 @@
-include(FetchContent)
-
-
-FetchContent_Declare(
-        googletest
-        GIT_REPOSITORY https://github.com/google/googletest.git
-        GIT_TAG release-1.14.0
-)
-
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
-
-
 set(GamesPlatform_SOURCES
         ../GamesPlatform/Source/Model/MaiorOuMenor.cpp
         ../GamesPlatform/Source/Model/Blackjack.cpp
@@ -20,20 +7,20 @@ set(GamesPlatform_SOURCES
         ../GamesPlatform/Source/Service/JogadorService.cpp
 )
 
-
 add_executable(GamesPlatformTester
-        GamesPlatformTester/MaiorOuMenorTest.cpp
-        GamesPlatformTester/BlackjackTest.cpp
-        GamesPlatformTester/GaloTest.cpp
-        GamesPlatformTester/RankingTest.cpp
-        GamesPlatformTester/JogadorContainerTest.cpp
-        GamesPlatformTester/JogadorServiceTest.cpp
+        MaiorOuMenorTest.cpp
+        BlackjackTest.cpp
+        GaloTest.cpp
+        RankingTest.cpp
+        JogadorContainerTest.cpp
+        JogadorServiceTest.cpp
         ${GamesPlatform_SOURCES}
 )
 
-
-target_include_directories(GamesPlatformTester PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../GamesPlatform/Headers)
-
+target_include_directories(GamesPlatformTester PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/../GamesPlatform/Headers
+        C:/FSOFT_ESTE/GamesPlatform/cmake-build-debug/_deps/googletest-src/googletest/include
+)
 
 target_link_libraries(GamesPlatformTester PRIVATE
         gtest_main

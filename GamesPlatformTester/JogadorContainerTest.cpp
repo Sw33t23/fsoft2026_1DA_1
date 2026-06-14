@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Container/JogadorContainer.h"
+#include "../GamesPlatform/Headers/Container/JogadorContainer.h"
 
 class JogadorContainerTest : public ::testing::Test {
 protected:

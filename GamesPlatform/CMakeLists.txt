@@ -1,7 +1,18 @@
-cmake_minimum_required(VERSION 3.20) # Version 4.1 is very high; 3.20 is standard
+cmake_minimum_required(VERSION 3.20)
 project(fsoft2026_1DA_1)
 
 set(CMAKE_CXX_STANDARD 17)
+
+include(FetchContent)
+FetchContent_Declare(
+        googletest
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG v1.14.0
+)
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+add_subdirectory(../GamesPlatformTester ${CMAKE_BINARY_DIR}/GamesPlatformTester)
 
 include_directories(Headers)
 
@@ -24,5 +35,11 @@ add_executable(fsoft2026_1DA_1
         Source/View/JogadorView.cpp
         Source/View/MaiorOuMenorView.cpp
         Source/View/RankingView.cpp
+        ../GamesPlatformTester/BlackjackTest.cpp
+        ../GamesPlatformTester/GaloTest.cpp
+        ../GamesPlatformTester/JogadorContainerTest.cpp
+        ../GamesPlatformTester/JogadorServiceTest.cpp
+        ../GamesPlatformTester/MaiorOuMenorTest.cpp
+        ../GamesPlatformTester/RankingTest.cpp
 
 )

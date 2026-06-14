@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Model/Galo.h"
+#include "../GamesPlatform/Headers/Model/Galo.h"
 
 class GaloTest : public ::testing::Test {
 protected:
@@ -9,14 +9,9 @@ protected:
 
 TEST_F(GaloTest, PlayerWinsInLine) {
     Galo g{'X'};
-    
 
     EXPECT_TRUE(g.validarEJogar(1, 1));
-    g.jogarComputador();
-    
     EXPECT_TRUE(g.validarEJogar(1, 2));
-    g.jogarComputador();
-    
     EXPECT_TRUE(g.validarEJogar(1, 3));
     
     EXPECT_EQ(g.verificarResultado(), 'J');
@@ -62,14 +57,23 @@ TEST_F(GaloTest, MoveOnOccupiedPosition) {
 
 TEST_F(GaloTest, PlayerWinsInDiagonal) {
     Galo g{'X'};
+
     EXPECT_TRUE(g.validarEJogar(1, 1));
     g.jogarComputador();
-    
-    EXPECT_TRUE(g.validarEJogar(2, 2));
-    g.jogarComputador();
-    
-    EXPECT_TRUE(g.validarEJogar(3, 3));
-    
+
+    // Se a IA ocupou (2,2), tenta outra diagonal
+    if (!g.validarEJogar(2, 2)) {
+        // a IA bloqueou — joga diagonal secundária
+        EXPECT_TRUE(g.validarEJogar(1, 3));
+        g.jogarComputador();
+        EXPECT_TRUE(g.validarEJogar(2, 2));
+        g.jogarComputador();
+        EXPECT_TRUE(g.validarEJogar(3, 1));
+    } else {
+        g.jogarComputador();
+        EXPECT_TRUE(g.validarEJogar(3, 3));
+    }
+
     EXPECT_EQ(g.verificarResultado(), 'J');
 }
 

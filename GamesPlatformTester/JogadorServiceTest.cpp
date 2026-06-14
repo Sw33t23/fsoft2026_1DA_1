@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "Service/JogadorService.h"
-#include "Container/JogadorContainer.h"
+#include "../GamesPlatform/Headers/Service/JogadorService.h"
+#include "../GamesPlatform/Headers/Container/JogadorContainer.h"
 
 class JogadorServiceTest : public ::testing::Test {
 protected:

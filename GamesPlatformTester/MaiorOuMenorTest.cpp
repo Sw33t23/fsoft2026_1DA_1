@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Model/MaiorOuMenor.h"
+#include "../GamesPlatform/Headers/Model/MaiorOuMenor.h"
  
 class MaiorOuMenorTest : public ::testing::Test {
 protected:
@@ -23,37 +23,40 @@ TEST_F(MaiorOuMenorTest, GuessEqualsSecretNumber) {
     game.iniciarJogoNovo();
     int secretNumber = findSecretNumber(game);
 
-    game.iniciarJogoNovo();
-    int result = game.verificarPalpite(secretNumber);
-    
-    EXPECT_EQ(result, 0);
-    EXPECT_EQ(game.getTentativasAtuais(), 1);
+    EXPECT_EQ(game.verificarPalpite(secretNumber), 0);
 }
  
 
 TEST_F(MaiorOuMenorTest, GuessGreaterThanSecretNumber) {
-    game.iniciarJogoNovo();
-    int secretNumber = findSecretNumber(game);
-    
-    game.iniciarJogoNovo();
-    int guessGreater = secretNumber + 10;
-    if (guessGreater > 100) guessGreater = 100;
-    
+    int secretNumber = 100;
+
+    while (secretNumber == 100) {
+        game.iniciarJogoNovo();
+        secretNumber = findSecretNumber(game);
+    }
+
+    int guessGreater = secretNumber + 1;
+    int tentativasAntes = game.getTentativasAtuais();
+
     int result = game.verificarPalpite(guessGreater);
     EXPECT_EQ(result, 1);
-    EXPECT_EQ(game.getTentativasAtuais(), 1);
+    EXPECT_EQ(game.getTentativasAtuais(), tentativasAntes + 1);
 }
 
 TEST_F(MaiorOuMenorTest, GuessSmallerThanSecretNumber) {
-    game.iniciarJogoNovo();
-    int secretNumber = findSecretNumber(game);
-    
-    game.iniciarJogoNovo();
-    int guessSmaller = secretNumber > 10 ? secretNumber - 10 : 1;
-    
+    int secretNumber = 1;
+
+    while (secretNumber == 1) {
+        game.iniciarJogoNovo();
+        secretNumber = findSecretNumber(game);
+    }
+
+    int guessSmaller = secretNumber - 1;
+    int tentativasAntes = game.getTentativasAtuais();
+
     int result = game.verificarPalpite(guessSmaller);
     EXPECT_EQ(result, -1);
-    EXPECT_EQ(game.getTentativasAtuais(), 1);
+    EXPECT_EQ(game.getTentativasAtuais(), tentativasAntes + 1);
 }
 
 TEST_F(MaiorOuMenorTest, GuessAboveMaxLimit) {

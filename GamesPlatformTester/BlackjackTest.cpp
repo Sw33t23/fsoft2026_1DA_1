@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Model/Blackjack.h"
+#include "../GamesPlatform/Headers/Model/Blackjack.h"
 
 class BlackjackTest : public ::testing::Test {
 protected:
